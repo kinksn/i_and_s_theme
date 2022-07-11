@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const environment = process.env.NODE_ENV;
-const environmentConfig = require(`./config/env.${environment}.js`);
+const environmentConfig = require(`./webpack/config/env.${environment}.js`);
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = ( srcDir, destDir, dirJs ) => {
