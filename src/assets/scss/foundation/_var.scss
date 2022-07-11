@@ -1,0 +1,138 @@
+// Breakpoint
+// TODO: デザインに合わせてブレイクポイントを調整
+// $breakpoint-pc:1160px;
+// $breakpoint-tablet: 959px;
+$breakpoint-mobile: 1024px;
+
+// グレースケール
+$color-grayscale-00: #FFFFFF;
+$color-grayscale-01: #F5F5F5;
+$color-grayscale-02: #DDDDDD;
+$color-grayscale-03: #CCCCCC;
+$color-grayscale-04: #707070;
+$color-grayscale-05: #444444;
+$color-grayscale-06: #E0F6FA;
+
+
+// Brand color
+$color-brand-main-to: #55CBE1;
+$color-brand-main-from: #68DCB5;
+$color-brand-sub: #55CBE1;
+$color-brand-accent: #FF7777;
+
+// Text color
+$color-text-white: $color-grayscale-00;
+$color-text-normal: $color-grayscale-05;
+$color-text-gray: $color-grayscale-04;
+$color-text-off: $color-grayscale-03;
+$color-text-link: #429CAD;
+
+// Background color
+$color-bg-gray: $color-grayscale-01;
+$color-bg-white: $color-grayscale-00;
+
+// Border color
+$color-border: $color-grayscale-02;
+
+// error color
+$color-error: #FFF5F5;
+
+
+
+
+// Font size（単位のpxは省略 font-sizeは基本mixinで指定する）
+$font-size-xxxxxx-large-pc: 48;
+$font-size-xxxxx-large-pc: 40;
+$font-size-xxxx-large-pc: 32;
+$font-size-xxx-large-pc: 24;
+$font-size-xx-large-pc: 20;
+$font-size-x-large-pc: 18;
+$font-size-large-pc: 18;
+$font-size-middle-pc: 16;
+$font-size-small-pc: 14;
+$font-size-x-small-pc: 12;
+
+$font-size-xxxxxx-large-sp: 31.5;
+$font-size-xxxxx-large-sp: 28;
+$font-size-xxxx-large-sp: 24.5;
+$font-size-xxx-large-sp: 21;
+$font-size-xx-large-sp: 17.5;
+$font-size-for-form-sp: 16;
+$font-size-x-large-sp: 15.8;
+$font-size-large-sp: 15.8;
+$font-size-middle-sp: 14;
+$font-size-small-sp: 12;
+$font-size-x-small-sp: 10;
+
+// Font weight
+$font-weight-normal-ja: 400;
+$font-weight-bold-ja: 700;
+$font-weight-normal-en: 500;
+$font-weight-bold-en: 600;
+
+// Font famili¥y
+$font-ja: 'Noto Sans JP', sans-serif;
+$font-en: 'Montserrat', sans-serif;
+
+// Figmaのgrid layout（単位はpx）
+$layout-grid-width-pc: 77;
+$layout-grid-spacing-pc: 40;
+$layout-grid-width-sp: 69;
+$layout-grid-spacing-sp: 20;
+
+// 基準となるコンテンツ幅（単位はpx）
+$container-width-s-pc: 898;
+$container-width-m-pc: 1132;
+$container-width-l-pc: 1366;
+$container-width-sp: 100%;
+
+// 基準となるコンテンツ幅の左右余白（単位はpx）
+$container-margin-s-pc: 351;
+$container-margin-m-pc: 234;
+$container-margin-l-pc: 117;
+$container-margin-pc: $layout-grid-spacing-pc;
+$container-margin-sp: $layout-grid-spacing-sp;
+
+// easing
+$ease-in01:         cubic-bezier(0.470,  0.000, 0.745, 0.715);
+$ease-in02:         cubic-bezier(0.550,  0.085, 0.680, 0.530);
+$ease-in03:         cubic-bezier(0.550,  0.055, 0.675, 0.190);
+$ease-in04:         cubic-bezier(0.895,  0.030, 0.685, 0.220);
+$ease-in05:         cubic-bezier(0.755,  0.050, 0.855, 0.060);
+$ease-in06:         cubic-bezier(0.950,  0.050, 0.795, 0.035);
+$ease-in-circ:      cubic-bezier(0.600,  0.040, 0.980, 0.335);
+$ease-in-back:      cubic-bezier(0.600, -0.280, 0.735, 0.045);
+
+$ease-out01:        cubic-bezier(0.390,  0.575, 0.565, 1.000);
+$ease-out02:        cubic-bezier(0.250,  0.460, 0.450, 0.940);
+$ease-out03:        cubic-bezier(0.215,  0.610, 0.355, 1.000);
+$ease-out04:        cubic-bezier(0.165,  0.840, 0.440, 1.000);
+$ease-out05:        cubic-bezier(0.230,  1.000, 0.320, 1.000);
+$ease-out06:        cubic-bezier(0.190,  1.000, 0.220, 1.000);
+$ease-out-circ:     cubic-bezier(0.075,  0.820, 0.165, 1.000);
+$ease-out-back:     cubic-bezier(0.175,  0.885, 0.320, 1.275);
+$ease-out-quart:     cubic-bezier(0.250, 1.000, 0.500, 1.000);
+$ease-out-cubic:     cubic-bezier(0.330, 1.000, 0.680, 1.000);
+
+$ease-in-out01:     cubic-bezier(0.445,  0.050, 0.550, 0.950);
+$ease-in-out02:     cubic-bezier(0.455,  0.030, 0.515, 0.955);
+$ease-in-out03:     cubic-bezier(0.645,  0.045, 0.355, 1.000);
+$ease-in-out04:     cubic-bezier(0.770,  0.000, 0.175, 1.000);
+$ease-in-out05:     cubic-bezier(0.860,  0.000, 0.070, 1.000);
+$ease-in-out06:     cubic-bezier(1.000,  0.000, 0.000, 1.000);
+$ease-in-out-circ:  cubic-bezier(0.785,  0.135, 0.150, 0.860);
+$ease-in-out-back:  cubic-bezier(0.680, -0.550, 0.265, 1.550);
+
+// ホバーのデフォルトイージング
+$hover-transition: 0.4s $ease-out-quart;
+$hover-transition-s: 0.3s $ease-out-quart;
+// ホバー透過のデフォルト透過率
+$hover-opacity: 0.7;
+
+
+// 影
+$box-shadow-pc: 0px 10px 20px rgba(0, 0, 0, 0.1);
+$box-shadow-sp: 0px 10px 15px rgba(0, 0, 0, 0.05);
+
+// 角丸
+$border-radius-default: 4px;

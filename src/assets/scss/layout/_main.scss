@@ -1,0 +1,15 @@
+@use "../foundation/mixin";
+@use "../foundation/var";
+
+.l-container {
+    margin-right: auto;
+    margin-left: auto;
+
+    &--800 {
+        max-width: 800px;
+    }
+}
+
+.local-breadcrumbs { // 絶対パスで読み込んでいるスタイル上書き
+    z-index: 1;
+}

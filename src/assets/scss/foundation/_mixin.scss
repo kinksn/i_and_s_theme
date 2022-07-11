@@ -1,0 +1,15 @@
+@import "./var";
+
+/*--------------------------------------------------------------------------
+  breakpoint
+---------------------------------------------------------------------------*/
+@mixin media-pc {
+  @media screen and (min-width: $breakpoint-mobile + 1){
+    @content;
+  }
+}
+@mixin media-sp {
+  @media screen and (max-width: $breakpoint-mobile){
+    @content;
+  }
+}

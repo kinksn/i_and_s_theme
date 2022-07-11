@@ -1,0 +1,342 @@
+@use "../foundation/mixin";
+@use "../foundation/var";
+
+
+
+
+/*--------------------------------------------------------------------------
+  記事ページの全体コンテナ（main）
+---------------------------------------------------------------------------*/
+.single {
+    position: relative;
+    padding-bottom: 160px;
+    @include mixin.media-sp {
+        padding-bottom: 60px;
+    }
+}
+
+
+
+
+/*--------------------------------------------------------------------------
+  記事ページの全体コンテナ（main）
+---------------------------------------------------------------------------*/
+
+
+
+
+
+/*--------------------------------------------------------------------------
+  記事ページのレイアウト調整
+---------------------------------------------------------------------------*/
+.singleContainer {
+    @include mixin.media-sp {
+        padding: 0 20px;
+    }
+    
+    a {
+        color: var.$color-text-link;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    p {
+        margin-top: 20px;
+    }
+
+    .textBgGray {
+        width: 100%;
+        padding: 20px;
+        margin: 20px 0;
+        overflow: hidden;
+        font-size: var.$font-size-x-large-pc + px;
+        background-color: var.$color-grayscale-01;
+        @include mixin.media-sp {
+            font-size: var.$font-size-x-large-sp + px;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        margin: 40px auto;
+        display: block;
+        border-radius: 4px;
+    }
+
+    h2 {
+        font-size: var.$font-size-xxxx-large-pc + px;
+        line-height: 1.5;
+        font-weight: 700;
+        margin: 40px 0 30px;
+        @include mixin.media-sp {
+            font-size: 1.53125rem;
+            line-height: 1.5;
+            font-weight: 700;
+        }
+    }
+
+    h3 {
+        font-size: var.$font-size-xxx-large-pc + px;
+        line-height: 1.5;
+        font-weight: 700;
+        margin: 40px 0 30px;
+        @include mixin.media-sp {
+            font-size: 1.3125rem;
+            line-height: 1.5;
+            font-weight: 700;
+        }
+    }
+
+    h4 {
+        font-size: var.$font-size-xx-large-pc + px;
+        line-height: 1.5;
+        font-weight: 700;
+        margin: 40px 0 30px;
+        @include mixin.media-sp {
+            font-size: 1.3125rem;
+            line-height: 1.5;
+            font-weight: 700;
+        }
+    }
+
+    strong {
+        font-weight: 600 !important;
+    }
+
+    ul {
+        margin: 40px 0;
+        > li {
+            display: flex;
+            align-items: flex-start;
+    
+            &::before {
+                content: ' ';
+                position: relative;
+                top: 12px;
+                min-width: 6px;
+                min-height: 6px;
+                border-radius: 6px;
+                background-color: var.$color-grayscale-05;
+                margin-right: 12px;
+    
+            }
+        }
+    }
+
+    .movie {
+        position: relative;
+        width: 100%;
+        margin-top: 20px;
+        padding-top: 56.25%;
+        
+         iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .singleContainer__lead {
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .heateor_sss_sharing_container { // スタイル上書き
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        flex-flow: wrap;
+        
+        &::after {
+            content: ' ';
+            display: block;
+            padding-top: 40px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var.$color-grayscale-02;
+            border-bottom: 1px solid var.$color-grayscale-02;
+            width: 100%;
+            @include mixin.media-sp {
+                padding-top: 20px;
+            }
+        }
+    }
+
+    .heateorSssClear { // sassy social shareのfloat余生不動化帽子タグを無効に（flexboxでレイアウトコントロールしているため）
+        display: none;
+    }
+
+    .wp-block-quote {
+        background-color: var.$color-grayscale-01;
+        padding: 20px;
+        margin: 40px 0;
+
+        > p {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 0;
+
+            &::before {
+                content: '';
+                min-width: 32px;
+                min-height: 32px;
+                display: block;
+                background-image: url("../../dist/img/single/icon_quote.svg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin-right: 8px;
+            }
+        }
+
+        > cite {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 12px;
+            font-size: var.$font-size-x-small-pc + px;
+            padding-left: 40px;
+            &::before {
+                content: "引用元：";
+                margin-right: 4px;
+                white-space: nowrap;
+            }
+
+            > a {
+                display: flex;
+                align-items: flex-start;
+
+                &::before {
+                    content: '';
+                    min-width: 13px;
+                    min-height: 13px;
+                    position: relative;
+                    top: 4px;
+                    display: block;
+                    background-image: url("../../dist/img/single/icon_external.svg");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+
+}
+
+
+
+
+/*--------------------------------------------------------------------------
+  ヒーローイメージ / 投稿タイトル / サブタイトル / 投稿日のコンテナ
+---------------------------------------------------------------------------*/
+.hero {
+    width: 100%;
+    height: 660px;
+    position: relative;
+    @include mixin.media-sp {
+        height: auto;
+    }
+
+    &::before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, rgba(39, 39, 39, 0.3) 67.88%, rgba(0, 0, 0, 0.6) 100%);
+        @include mixin.media-sp {
+            content: none;
+        }
+    }
+
+}
+
+.hero__image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    @include mixin.media-sp {
+        height: 200px;
+    }
+}
+
+.posTitleDateWrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+    margin: 0 auto;
+    max-width: 800px;
+
+    @include mixin.media-sp() {
+        text-align: center;
+        position: initial;
+        padding: 20px 20px 0; 
+    }
+}
+
+
+
+
+/*--------------------------------------------------------------------------
+  投稿タイトル（style上書き）
+---------------------------------------------------------------------------*/
+.c-title--lv2.postTitle {
+    margin-bottom: 4px;
+
+    @include mixin.media-sp() {
+        margin-bottom: 8px;
+    }
+}
+
+
+
+
+/*--------------------------------------------------------------------------
+  投稿サブタイトル（style上書き）
+---------------------------------------------------------------------------*/
+.posTitleDateWrap > .postSubTtle {
+    color: var.$color-grayscale-04;
+    font-size: var.$font-size-middle-pc + px;
+    margin-bottom: 16px;
+
+    @include mixin.media-sp() {
+        display: block;
+        width: 95%;
+        font-size: var.$font-size-middle-sp + px;
+    }
+}
+
+
+
+
+/*--------------------------------------------------------------------------
+  投稿日
+---------------------------------------------------------------------------*/
+.postDate {
+    color: var.$color-grayscale-00;
+    font-family: "Montserrat",sans-serif;
+    font-size: var.$font-size-x-small-pc + px;
+
+    @include mixin.media-sp() {
+        display: block;
+        text-align: left;
+        color: inherit;
+    }
+}
+
+.postTitle {
+    color: var.$color-grayscale-00;
+    @include mixin.media-sp {
+        color: inherit;
+        text-align: left;
+    }
+}
