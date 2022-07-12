@@ -1,3 +1,4 @@
+
 <?php
-    $timestamp = '?var=' . date_i18n('U');
+  $timestamp = '?var=' . date_i18n('U');
 ?>

@@ -1,98 +1,88 @@
+
 <?php
+ 
 
-/** 管理画面以外でのadmin barを非表示 */
+//  管理画面以外でのadmin barを非表示
 add_filter( 'show_admin_bar', '__return_false' );
-
 //アイキャッチを有効
 add_theme_support('post-thumbnails');
-
 //カテゴリ名を取得する関数を登録
 add_action( 'rest_api_init', 'register_category_name' );
-
 function register_category_name() {
-//register_rest_field関数を用いget_category_name関数からカテゴリ名を取得し、追加する
-    register_rest_field( 'post',
-        'category_name',
-        array(
-            'get_callback'    => 'get_category_name'
-        )
-    );
+// register_rest_field関数を用いget_category_name関数からカテゴリ名を取得し、追加する
+   register_rest_field( 'post',
+       'category_name',
+       array(
+           'get_callback'    => 'get_category_name'
+       )
+   );
 }
-
 add_action( 'rest_api_init', 'api_add_fields' );
 function api_add_fields() {
-  register_rest_field( 'post',
-    'thumbnail_url',
-     array(
-      'get_callback'    => 'register_fields',
-      'update_callback' => null,
-      'schema'          => null,
-    )
-  );
+ register_rest_field( 'post',
+   'thumbnail_url',
+    array(
+     'get_callback'    => 'register_fields',
+     'update_callback' => null,
+     'schema'          => null,
+   )
+ );
 }
 function register_fields( $post, $name ) {
-  return get_the_post_thumbnail_url($post['id'], 'full');
+ return get_the_post_thumbnail_url($post['id'], 'full');
 }
-
 //$objectは現在の投稿の詳細データが入る
 function get_category_name( $object ) {
-    $category = get_the_category($object[ 'id' ]);
-    $cat_name = $category[0]->cat_name;
-    return $cat_name;
+   $category = get_the_category($object[ 'id' ]);
+   $cat_name = $category[0]->cat_name;
+   return $cat_name;
 }
-
-
-
 // ページネーションのHTMLカスタマイズ
 function pagenation($pages = '', $range = 5){
-    $showitems = ($range);
-    global $paged;
-    if(empty($paged)) $paged = 1;
-    if($pages == ''){
-        global $wp_query;
-        $pages = $wp_query->max_num_pages;
-        if(!$pages){
-            $pages = 1;
-        }
-    }
-    if(1 != $pages){
-        echo "<nav class=\"c-pagination\"><ul class=\"c-pagination__list\">";
-        // 「前へ」を表示
-        if($paged > 1) echo "<li class=\"c-pagination__prev\"><a class=\"link\" href='".get_pagenum_link($paged - 1)."'><svg class=\"svg svg--default\"><use xlink:href=\"#leftIconBC\"></svg><svg class=\"svg svg--over\"><use xlink:href=\"#leftIcon\"></svg><span class=\"u-for-pc\">前のページ</span></a></li>";
-        // ページ番号を出力
-        echo "<li class=\"c-pagination__item\">\n";
-        for ($i=1; $i < $pages; $i++){
-            if (1 != $pages &&( !($i >= $paged+$range || $i <= $paged-($range-4)) || $pages <= $showitems )){
-                echo ($paged == $i)? "<li class=\"c-pagination__item\"><span>".$i."</span></li>": // 現在のページの数字はリンク無し
-                    "<li class=\"c-pagination__item\"><a class=\"link\" href='".get_pagenum_link($i)."'>".$i."</a></li>";
-            }
-        }
-
-        echo "</li>\n";
-        // 「次へ」を表示
-        if($paged < $pages) echo "<li class=\"c-pagination__next\"><a class=\"link\" href='".get_pagenum_link($paged + 1)."'><span class=\"u-for-pc\">次のページ</span><svg class=\"svg svg--default\"><use xlink:href=\"#rightIconBC\"></svg><svg class=\"svg svg--over\"><use xlink:href=\"#rightIcon\"></svg></a></li>";
-        echo "</ul></nav>\n";
-    }
+   $showitems = ($range);
+   global $paged;
+   if(empty($paged)) $paged = 1;
+   if($pages == ''){
+       global $wp_query;
+       $pages = $wp_query->max_num_pages;
+       if(!$pages){
+           $pages = 1;
+       }
+   }
+   if(1 != $pages){
+       echo "<nav class=\"c-pagination\"><ul class=\"c-pagination__list\">";
+       // 「前へ」を表示
+       if($paged > 1) echo "<li class=\"c-pagination__prev\"><a class=\"link\" href='".get_pagenum_link($paged - 1)."'><svg class=\"svg svg--default\"><use xlink:href=\"#leftIconBC\"></svg><svg class=\"svg svg--over\"><use xlink:href=\"#leftIcon\"></svg><span class=\"u-for-pc\">前のページ</span></a></li>";
+       // ページ番号を出力
+       echo "<li class=\"c-pagination__item\">\n";
+       for ($i=1; $i < $pages; $i++){
+           if (1 != $pages &&( !($i >= $paged+$range || $i <= $paged-($range-4)) || $pages <= $showitems )){
+               echo ($paged == $i)? "<li class=\"c-pagination__item\"><span>".$i."</span></li>": // 現在のページの数字はリンク無し
+                   "<li class=\"c-pagination__item\"><a class=\"link\" href='".get_pagenum_link($i)."'>".$i."</a></li>";
+           }
+       }
+ 
+       echo "</li>\n";
+       // 「次へ」を表示
+       if($paged < $pages) echo "<li class=\"c-pagination__next\"><a class=\"link\" href='".get_pagenum_link($paged + 1)."'><span class=\"u-for-pc\">次のページ</span><svg class=\"svg svg--default\"><use xlink:href=\"#rightIconBC\"></svg><svg class=\"svg svg--over\"><use xlink:href=\"#rightIcon\"></svg></a></li>";
+       echo "</ul></nav>\n";
+   }
 }
-
-
-
 function get_description() {
   // 記事ページの場合
-  if(is_single()) {
+ if(is_single()) {
+ 
+   // 投稿画面で入力した抜粋を出力用の変数へ代入
+   $description = get_the_excerpt();
+ }
 
-    // 投稿画面で入力した抜粋を出力用の変数へ代入
-    $description = get_the_excerpt();
-  }
+ // 抜粋が無い場合は通常通りキャッチフレーズを出力
+ if(empty($description)) {
+   $description = bloginfo('description');
+ }
 
-  // 抜粋が無い場合は通常通りキャッチフレーズを出力
-  if(empty($description)) {
-    $description = bloginfo('description');
-  }
-
-  return $description;
+ return $description;
 }
-
 function mytheme_breadcrumb() {
 	//HOME>と表示
 	$sep = '<span>/</span>';
@@ -121,7 +111,7 @@ function mytheme_breadcrumb() {
 		echo '<li>'.$value.'</li>';
 		echo $sep;
 	}
- 
+
 	//現在のページ名を表示
 	if ( is_singular() ) {
 		if ( is_attachment() ) {
@@ -134,6 +124,4 @@ function mytheme_breadcrumb() {
 	else if( is_search() ) echo '<li>検索 : 「'.get_search_query().'」</li>';
 	else if( is_404() ) echo '<li>ページが見つかりません</li>';
 }
-
-	
 ?>

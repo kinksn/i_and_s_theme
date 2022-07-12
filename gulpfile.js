@@ -6,6 +6,7 @@ const bs = require('browser-sync').create(); // ローカルサーバ＆ブラ�
 const plumber = require('gulp-plumber'); // エラーによる強制停止を防止
 const notify  = require('gulp-notify'); // エラー通知
 const rename = require('gulp-rename');
+const zip = require('gulp-zip');
 
 const sass = require('gulp-sass')(require('sass')), // sassコンパイル
       sassGlob = require("gulp-sass-glob-use-forward"), // sassでglob指定できるように
@@ -131,8 +132,21 @@ const browserSync =  done => {
 };
 
 //dist削除
-const clean = cb => {
+const zipFiles = () => {
+    return src( ['./**/*.php', './dist**/assets/**/*', './style.css', './screenshot.png'] )
+      .pipe( zip('i_and_s_theme.zip') )
+      .pipe( dest( projectDir ) );
+
+};
+
+//dist削除
+const cleanDist = cb => {
     return rimraf( destDir, cb );
+};
+
+//php削除
+const cleanPHP = cb => {
+    return rimraf( projectDir + '**.php', cb );
 };
 
 // 画像圧縮
@@ -172,6 +186,7 @@ const watchFiles = done => {
     };
     watch( devDir + dir.sass + '**/*.scss').on( 'change', series( sassCompile, browserReload ) );
     watch( devDir + dir.js + '**/*.js' ).on( 'change', series( jsCompile, browserReload ) );
+    watch( devDir + dir.pug + '**/*.pug' ).on( 'change', series( pugCompile, browserReload ) );
     watch( phpFile ).on( 'change', browserReload );
     watch( imgFiles, imageMin );
     watch( copyFileList, copyFiles );
@@ -188,8 +203,11 @@ const watchFiles = done => {
 */
 
 // gulpタスク
-exports.default = series( clean, pugCompile, sassCompile, jsCompile, imageMin, copyFiles );
+exports.default = series( cleanDist, cleanPHP, pugCompile, sassCompile, jsCompile, imageMin, copyFiles );
 
 // watchタスク
 exports.watch = series( pugCompile, sassCompile, jsCompile, parallel( watchFiles, browserSync ) );
+
+// zipタスク
+exports.zip = series( cleanDist, cleanPHP, pugCompile, sassCompile, jsCompile, imageMin, copyFiles, zipFiles );
 
