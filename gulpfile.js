@@ -5,10 +5,15 @@ const { src, dest, lastRun, watch, series, parallel } = require('gulp'); // gulp
 const bs = require('browser-sync').create(); // ローカルサーバ＆ブラウザオートリロード
 const plumber = require('gulp-plumber'); // エラーによる強制停止を防止
 const notify  = require('gulp-notify'); // エラー通知
+const rename = require('gulp-rename');
 
 const sass = require('gulp-sass')(require('sass')), // sassコンパイル
       sassGlob = require("gulp-sass-glob-use-forward"), // sassでglob指定できるように
       autoprefixer = require('gulp-autoprefixer'); // ベンダープレフィックス
+
+const pug = require('gulp-pug');
+
+const postcss = require('gulp-postcss') // taiwind.cssを使うために追加
 
 const imagemin = require('gulp-imagemin'), // 画像圧縮
       mozjpeg = require( 'imagemin-mozjpeg' ),
@@ -31,7 +36,8 @@ const dir = {
   js    : assetsDir + 'js/',
   css   : assetsDir + 'css/',
   sass  : assetsDir + 'scss/',
-  img   : assetsDir + 'img/'
+  pug  : assetsDir + 'pug/',
+  img   : assetsDir + 'img/',
 };
 const phpFile = projectDir + '**/*.php';
 const imgFiles = [
@@ -76,8 +82,26 @@ const sassCompile = () => {
             outputStyle: 'compressed'// Minify
         }))
         .pipe(autoprefixer())
+        .pipe(postcss([
+          require('tailwindcss'),
+          require('autoprefixer')
+         ]))
         .pipe(dest( destDir + dir.css )); // 開発ディレクトリにcss書き出し
 };
+
+const pugCompile = () => {
+    const option = {
+      pretty: true,
+    };
+
+    return src( devDir + dir.pug + '**/*.pug' )
+      .pipe(plumber())
+      .pipe(pug(option))
+      .pipe(rename({
+        extname: '.php'
+      }))
+      .pipe(dest( projectDir )); // 開発ディレクトリにphp書き出し
+}
 
 // JavaScriptコンパイル
 const jsCompile = () => {
@@ -86,7 +110,7 @@ const jsCompile = () => {
           .pipe( dest( destDir + dir.js ) );
 }
 
-
+// コピータスク
 const copyFiles = () => { // distディレクトリにコピータスク
     return src( copyFileList )
         .pipe( dest( destDir ) ); // 開発ディレクトリにコピー
@@ -164,7 +188,8 @@ const watchFiles = done => {
 */
 
 // gulpタスク
-exports.default = series( clean, sassCompile, jsCompile, imageMin, copyFiles );
+exports.default = series( clean, pugCompile, sassCompile, jsCompile, imageMin, copyFiles );
 
 // watchタスク
-exports.watch = series( sassCompile, jsCompile, parallel( watchFiles, browserSync ) ); 
+exports.watch = series( pugCompile, sassCompile, jsCompile, parallel( watchFiles, browserSync ) );
+

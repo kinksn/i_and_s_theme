@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="l-main">
+<div class="l-main flex">
 contents
 </div>
 

@@ -62,6 +62,11 @@ module.exports = ( srcDir, destDir, dirJs ) => {
       new webpack.DefinePlugin({
         'process.env': JSON.stringify( environmentConfig ),
       })
-    ]
-  }
-}
+    ],
+    resolve: {
+      alias: {
+        'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' webpack 1 用
+      }
+    }
+  };
+};
