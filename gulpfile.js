@@ -133,7 +133,7 @@ const browserSync =  done => {
 
 //dist削除
 const zipFiles = () => {
-    return src( ['./**/*.php', './dist**/assets/**/*', './style.css', './screenshot.png'] )
+    return src( ['./**/*.php', './dist**/assets/**/*', './style.css', './screenshot.png', './favicon.png'] )
       .pipe( zip('i_and_s_theme.zip') )
       .pipe( dest( projectDir ) );
 

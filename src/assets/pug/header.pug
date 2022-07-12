@@ -18,21 +18,20 @@ doctype
     meta( property="og:description", content!="<?php echo get_description(); ?>" )
     meta( name="twitter:card", content="summary_large_image" )
     meta( name="twitter:domain", content="https://www.ins-production.com" )
-    |
-    | <?php if ( has_post_thumbnail() && ( !is_home() && !is_front_page() )) : ?>
+    .
+      <?php if ( has_post_thumbnail() && ( !is_home() && !is_front_page() )) : ?>
     meta( roperty="og:image", content!="<?php the_post_thumbnail_url(); ?>" )
     meta( name="twitter:image", content!="<?php the_post_thumbnail_url(); ?>" )
-    |
-    | <?php else: ?>
+    .
+      <?php else: ?>
     meta( property="og:image", content="https://www.ins-production.com/assets/img/common/ogp.png" )
     meta( name="twitter:image", content="https://www.ins-production.com/assets/img/common/ogp.png" )
-    |
-    | <?php endif; ?>
+    .
+      <?php endif; ?>
     link( rel="preconnect", href="https://fonts.googleapis.com" )
     link( rel="preconnect", href="https://fonts.gstatic.com", crossorigin )
     link( href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Noto+Sans+JP:wght@400;700&display=swap", rel="stylesheet" )
-    link( rel="icon", type="image/png", sizes="32x32", href="favicon-32x32.png" )
-    link( rel="icon", type="image/png", sizes="16x16", href="favicon-16x16.png" )
+    link( rel="icon", href!="<?php bloginfo( 'stylesheet_directory' ); ?>/favicon.png" )
     link( href!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/css/style.css", rel="stylesheet" )
     |
     | <?php
@@ -40,17 +39,10 @@ doctype
     |       wp_head();
     | ?>
     |  <?php wp_head(); ?>
-  |
-  |
   .
     <body>
   //-
     Google Tag Manager (noscript)
   header( class="l-header" )
     | ヘッダー
-  
-
-  main( class="l-page" )
-    .
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/1OKZOV-iLj4"></iframe>
 
