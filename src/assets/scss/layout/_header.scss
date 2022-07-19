@@ -14,7 +14,7 @@
     left: 0;
     z-index: 100;
     @include mixin.media-sp() {
-        height: 38px;
+        height: var.$header-height;
     }
 
     &--top {
@@ -74,7 +74,7 @@
 }
 
 .l-header__spMenuBorder {
-    width: 16px;
+    width: 24px;
     height: 4px;
     border-radius: 100vh;
     background-color: var.$color-text-base;
@@ -87,7 +87,7 @@
 
 .l-header__logoImage {
     @include mixin.media-sp() {
-        max-width: 120px;
+        max-width: 140px;
     }
 }
 
@@ -98,8 +98,8 @@
     @include mixin.media-sp() {
         // display: none;
         position: fixed;
-        top: 38px;
-        padding-top: 64px;
+        top: var.$header-height;
+        padding-top: 60px;
         gap: 28px;
         border-top: 1px solid var.$color-primary-light;
         flex-direction: column;
@@ -123,11 +123,19 @@
 
 .l-header__item {
     @include mixin.font-style($s: fs-14, $lh: none);
+    @include mixin.media-sp() {
+        &:last-child {
+            margin-bottom: 120px;
+        }
+    }
 }
 
 .l-header__link {
     @include mixin.font-style($s: fs-14, $w: bold);
     @include mixin.hover-text();
+    @include mixin.media-sp() {
+        @include mixin.font-style($s: fs-20, $w: bold);
+    }
 
     &--button {
         @include mixin.hover-button-btg();

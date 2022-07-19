@@ -2,7 +2,7 @@
   <?php get_header(); ?>
 
 
-article( class="l-main" )
+article( class="l-main top" )
 
   //- main visual(mv)
   section( class="mv" id="mv" )
@@ -11,6 +11,7 @@ article( class="l-main" )
         img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/ornaments/dots-green.svg", class="mv__ornament mv__ornament--green", alt="" )
         div( class="mv__leftContainer" )
           div( class="mv__liquidShape" )
+          div( class="mv__liquidShape mv__liquidShape--reverse" )
           div( class="mv__textWrap" )
             h1( class="mv__tagline" )
               | クラウドファンディングに<br>特化した写真・動画の撮影
@@ -55,6 +56,53 @@ article( class="l-main" )
             | クラウドファンディングの講師も務める知識豊富なカメラマンが、クラファンで映える写真・動画コンテンツをワンストップで制作いたします。キャンペーンが終わった後もECサイトなどで使用できることを想定した、高いクオリティのイメージが作成可能です。
           div( class="aboutUs__tabContent aboutUs__tabContent--price" )
             | I&Sではクラウドファンディングの撮影に特化して制作フローを効率化しているため、簡単なイメージの聞き取りとプロダクト情報のご提示だけで、スピーディ且つ低予算でのコンテンツの制作が可能です。<br><br>
+
+  //- Strength
+  section( class="l-section l-section--bgGradientGtoO strength" )
+    div( class="l-section__inner" )
+      div( class="l-section__textWrap")
+        small( class="l-section__H2English" )
+          | Strength
+        h2( class="l-section__H2" )
+          | I&S撮影スタジオが<br class="u-onlySP">できること
+        p( class="l-section__leadPragraph" )
+          | クラウドファンディングの<br class="u-onlySP">撮影だけではありません
+      div( class="" )
+
+  //- Works
+  section( class="l-section works" )
+    div( class="l-section__inner" )
+      div( class="l-section__textWrap")
+        small( class="l-section__H2English" )
+          | Works
+        h2( class="l-section__H2" )
+          | 撮影事例
+        p( class="l-section__leadPragraph" )
+          | クラウドファンディングサイトmachi-yaで、当時最高額の支援額となる4400万円を売り上げた超薄型財布「Tenuis3」や、<br>OIOI（マルイ）がライフハッカー［日本版］編集部とタッグを組み製作したバックパック「Teleffice」などを担当。
+      div( class="" )
+
+  //- Plan
+  section( class="l-section l-section--bgGradientGtoO plan" )
+    div( class="l-section__inner" )
+      div( class="l-section__textWrap")
+        small( class="l-section__H2English" )
+          | Plan
+        h2( class="l-section__H2" )
+          | 料金プラン
+      div( class="" )
+
+  //- Flow
+  section( class="l-section works" )
+    div( class="l-section__inner" )
+      div( class="l-section__textWrap")
+        small( class="l-section__H2English" )
+          | Flow
+        h2( class="l-section__H2" )
+          | ご依頼から納品までの流れ
+        p( class="l-section__leadPragraph" )
+          | サンプルの受け取りから最短で<br class="u-onlySP">2週間の納品が可能です。
+      div( class="" )
+
 
 .
   <?php get_footer(); ?>

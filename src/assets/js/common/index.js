@@ -1,7 +1,7 @@
 import spMenu from './spMenu';
 
 function initCommon() {
-    spMenu();
+    spMenu(); // sp humburger menu
 }
 
 export default initCommon;

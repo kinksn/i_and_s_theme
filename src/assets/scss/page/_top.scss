@@ -15,7 +15,7 @@
     @include mixin.media-sp() {
         height: auto;
         padding: 16px;
-        margin-top: 38px;
+        margin-top: var.$header-height;
     }
 }
 
@@ -92,6 +92,12 @@
         height: 38px;
         width: 48%;
         padding-bottom: 48%;
+    }
+
+    &--reverse {
+        animation: liquidShape 12s ease 0s infinite;
+        animation-direction: alternate;
+        opacity: 0.4;
     }
 }
 
@@ -426,3 +432,5 @@
         }
     }
 }
+
+

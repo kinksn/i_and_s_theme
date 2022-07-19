@@ -1,0 +1,17 @@
+@use "../../foundation/var";
+@use "../../foundation/mixin";
+
+/*--------------------------------------------------------------------------
+  utility class
+---------------------------------------------------------------------------*/
+.u-onlyPC {
+    @include mixin.media-sp() {
+        display: none;
+    }
+}
+
+.u-onlySP {
+    @include mixin.media-pc() {
+        display: none;
+    }
+}
