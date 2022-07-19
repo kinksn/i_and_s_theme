@@ -57,9 +57,13 @@ doctype
     <?php $isTopPage = is_front_page() ? 'l-header--top' : '' ?>
   header( class!="l-header <?php echo $isTopPage ?>" )
     nav( class="l-header__inner" )
-      a( class="l-header__logo", href="/" )
-        img( class="l-header__logoImage", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/logo.svg", alt="I&S Productionのロゴ画像" )
-      ul( class="l-header__nav" )
+      div( class="l-header__logoMenuContainer" )
+        a( class="l-header__logo", href="/" )
+          img( class="l-header__logoImage", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/logo.svg", alt="I&S Productionのロゴ画像" )
+        div( class="l-header__spMenuButton", id="js-spMenuButton" )
+          div( class="l-header__spMenuBorder l-header__spMenuBorder--top" )
+          div( class="l-header__spMenuBorder l-header__spMenuBorder--bottom" )
+      ul( class="l-header__nav", id="js-headerNav" )
         li( class="l-header__item" )
           a( class="l-header__link", href="#" )
             | 撮影事例

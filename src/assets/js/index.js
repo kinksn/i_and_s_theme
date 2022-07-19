@@ -1,7 +1,9 @@
-import initIndex from './page/index/index'
+import initIndex from './page/index/index';
+import initCommon from './common/index';
 
 
 /*--------------------------------------------------------------------------
   init functions
 ---------------------------------------------------------------------------*/
-initIndex();
+initCommon(); // common page
+initIndex(); // top page

@@ -12,6 +12,11 @@
     width: 100%;
     height: 100vh;
     padding: 20px;
+    @include mixin.media-sp() {
+        height: auto;
+        padding: 16px;
+        margin-top: 38px;
+    }
 }
 
 .mv__inner {
@@ -22,6 +27,10 @@
     width: 100%;
     height: 100%;
     background-color: var.$color-white;
+    @include mixin.media-sp() {
+        align-items: flex-start;
+        padding-bottom: 92px;
+    }
 }
 
 .mv__container {
@@ -30,11 +39,18 @@
     justify-content: space-between;
     align-items: center;
     width: 86.5vw;
+    @include mixin.media-sp() {
+        flex-direction: column;
+        width: 80.8vw;
+    }
 }
 
 .mv__ornament {
     position: absolute;
     width:  14.55vw;
+    @include mixin.media-sp() {
+        display: none;
+    }
 
     &--green {
         top: -24%;
@@ -51,6 +67,15 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    @include mixin.media-sp() {
+        margin-top: 60px;
+    }
+}
+
+.mv__rightContainer {
+    @include mixin.media-sp() {
+        margin-top: 40px;
+    }
 }
 
 .mv__liquidShape {
@@ -63,6 +88,11 @@
     padding-bottom: 72%;
     background: linear-gradient(45deg, rgba(125, 212, 110, 0.08) 0%, rgba(240, 213, 68, 0.08) 100%);
     animation: liquidShape 20s ease 0s infinite;
+    @include mixin.media-sp() {
+        height: 38px;
+        width: 48%;
+        padding-bottom: 48%;
+    }
 }
 
 .mv__textWrap {
@@ -70,18 +100,27 @@
     flex-direction: column;
     justify-content: center;
     gap: 24px;
+    @include mixin.media-sp() {
+        gap: 16px;
+    }
 }
 
 .mv__tagline {
     @include mixin.font-style($s: fs-40, $w: bold);
     font-size: 2.645vw; // レスポンシブ対応のためfont-size上書き
     color: var.$color-primary;
+    @include mixin.media-sp() {
+        font-size: 6.4vw;
+    }
 }
 
 .mv__description {
     @include mixin.font-style($lh: none);
     font-size: 1.058vw; // レスポンシブ対応のためfont-size上書き
     color: var.$color-text-green;
+    @include mixin.media-sp() {
+        font-size: 4.5vw;
+    }
 }
 
 .mv__movieWrap {
@@ -92,6 +131,9 @@
 .mv__movie {
     position: relative;
     width: 48.67vw;
+    @include mixin.media-sp() {
+        width: 100%;
+    }
 
     &::before {
         content: '';
@@ -103,6 +145,10 @@
         top: 40px;
         left: 40px;
         background: linear-gradient(45deg, rgba(125, 212, 110, 0.08) 0%, rgba(240, 213, 68, 0.08) 100%);
+        @include mixin.media-sp() {
+            top: 12px;
+            left: 12px;
+        }
     }
 
     > video {
@@ -121,6 +167,10 @@
     position: relative;
     top: -24px;
     z-index: 2;
+    @include mixin.media-sp() {
+        padding: 20px 20px 24px;
+        top: -12px;
+    }
 }
 
 .mv__movieLinkText {
@@ -129,6 +179,9 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    @include mixin.media-sp() {
+        @include mixin.font-style($s: fs-14, $w: bold);
+    }
 }
 
 // liquid shape animation
@@ -163,6 +216,9 @@
     left:50%;
     bottom:0;
     height:133px;
+    @include mixin.media-sp() {
+        height: 92px;
+    }
 
     &::before {
         content: " ";
@@ -184,9 +240,12 @@
         height: 100%;
         background: var.$color-primary;
             /*線の動き1.4秒かけて動く。永遠にループ*/
-        animation: scrollLine 1.4s ease-in-out infinite;
+        animation: scrollLinePC 1.4s ease-in-out infinite;
         opacity:0;
         display: block;
+        @include mixin.media-sp() {
+            animation: scrollLineSP 1.4s ease-in-out infinite;
+        }
     }
 }
 
@@ -198,25 +257,51 @@
     left: 12px;
     top: 8px;
     color: var.$color-primary;
+    @include mixin.media-sp() {
+        font-size: 10px;
+        line-height: 1.1;
+    }
 }
 
 // scroll line animation
-@keyframes scrollLine {
+@keyframes scrollLinePC {
     0%{
-      height:0;
-      top:0;
+      height: 0;
+      top: 0;
       opacity: 0;
     }
     30%{
-      height:60px;
+      height: 60px;
+      opacity: 1;
+      @include mixin.media-sp() {
+        height: 30px;
+      }
+    }
+    100%{
+      height: 0;
+      top: 132px;
+      opacity: 0;
+      @include mixin.media-sp() {
+        top: 102px;
+      }
+    }
+}
+@keyframes scrollLineSP {
+    0%{
+      height: 0;
+      top: 0;
+      opacity: 0;
+    }
+    30%{
+      height: 30px;
       opacity: 1;
     }
     100%{
-      height:0;
-      top:132px;
+      height: 0;
+      top: 92px;
       opacity: 0;
     }
-  }
+}
 
 
 
@@ -228,6 +313,9 @@
 .aboutUs__tabButtonContainer {
     max-width: 800px;
     margin: 0 auto;
+    @include mixin.media-sp() {
+        max-width: 100%;
+    }
 }
 
 .aboutUs__tabButtonList {
@@ -235,6 +323,9 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    @include mixin.media-sp() {
+        max-width: 100%;
+    }
 }
 
 .aboutUs__tabButtonItem {
@@ -247,10 +338,15 @@
     height: 216px;
     background-color: var.$color-primary;
     box-shadow: 0px 4px 4px rgba(4, 83, 41, 0.16);
-    border: 4px;
+    border: 4px solid var.$color-primary;
     transition: background-color .3s, border .3s;
     &:hover {
         background-color: var.$color-primary-dark;
+    }
+    @include mixin.media-sp() {
+        width: 43.73vw;
+        height: auto;
+        padding: 20px 0;
     }
 
     &.is-active {
@@ -267,9 +363,25 @@
     gap: 8px;
 }
 
+.aboutUs__tabButtonIcon {
+    &--crowdfunding {
+        @include mixin.media-sp() {
+            width: 36px;
+        }
+    }
+    &--price {
+        @include mixin.media-sp() {
+            width: 28px;
+        }
+    }
+}
+
 .aboutUs__tabButtonText {
     @include mixin.font-style($s: fs-14, $w: bold, $a: center);
     color: var.$color-white;
+    @include mixin.media-sp() {
+        @include mixin.font-style($s: fs-12, $w: bold, $a: center);
+    }
 }
 
 .aboutUs__tabContentContainer {
@@ -299,12 +411,18 @@
     &--crowdfunding {
         &:before {
             left: 248px;
+            @include mixin.media-sp() {
+                left: 20.4%;
+            }
         }
     }
 
     &--price {
         &:before {
             right: 248px;
+            @include mixin.media-sp() {
+                right: 20.4%;
+            }
         }
     }
 }
