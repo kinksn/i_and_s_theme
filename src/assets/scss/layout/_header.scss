@@ -1,0 +1,57 @@
+@use "../foundation/var";
+@use "../foundation/mixin";
+
+
+.l-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    background-color: var.$color-white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    &--top {
+        position: absolute;
+        top: 40px;
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+
+.l-header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 48px;
+    width: 100%;
+}
+
+.l-header__logo {
+    @include mixin.hover-transparent();
+}
+
+.l-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.l-header__item {
+    @include mixin.font-style($s: fs-14, $lh: none);
+}
+
+.l-header__link {
+    @include mixin.font-style($s: fs-14, $w: bold);
+    @include mixin.hover-text();
+
+    &--button {
+        @include mixin.hover-button-btg();
+        padding: 12px 24px;
+        color: var.$color-white;
+        // background: var.$color-lg-blue-to-green;
+        border-radius: 100vh;
+    }
+}

@@ -6,6 +6,16 @@ doctype
   head
     //-
       Google Tag Manager
+    .
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9B4HD6PGDP"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-9B4HD6PGDP');
+      </script>
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     title.
@@ -36,13 +46,30 @@ doctype
     |
     | <?php
     |   if(has_action('wp_head', '_admin_bar_bump_cb' )) remove_action('wp_head', '_admin_bar_bump_cb');
-    |       wp_head();
+    |   wp_head();
     | ?>
     |  <?php wp_head(); ?>
   .
     <body>
   //-
     Google Tag Manager (noscript)
-  header( class="l-header" )
-    | ヘッダー
+  .
+    <?php $isTopPage = is_front_page() ? 'l-header--top' : '' ?>
+  header( class!="l-header <?php echo $isTopPage ?>" )
+    nav( class="l-header__inner" )
+      a( class="l-header__logo", href="/" )
+        img( class="l-header__logoImage", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/logo.svg", alt="I&S Productionのロゴ画像" )
+      ul( class="l-header__nav" )
+        li( class="l-header__item" )
+          a( class="l-header__link", href="#" )
+            | 撮影事例
+        li( class="l-header__item" )
+          a( class="l-header__link", href="#" )
+            | 私たちについて
+        li( class="l-header__item" )
+          a( class="l-header__link", href="#" )
+            | 料金プラン
+        li( class="l-header__item" )
+          a( class="l-header__link l-header__link--button", href="#" )
+            | お問い合わせ・お見積り
 

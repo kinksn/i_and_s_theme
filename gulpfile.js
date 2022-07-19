@@ -60,7 +60,9 @@ const copyFileList = [
   devDir + '**/*.woff',
   devDir + '**/*.woff2'
 ];
-
+const copyJS = [
+  devDir + dir.js + 'static/**/*.js',
+];
 
 
 
@@ -111,11 +113,6 @@ const jsCompile = () => {
           .pipe( dest( destDir + dir.js ) );
 }
 
-// コピータスク
-const copyFiles = () => { // distディレクトリにコピータスク
-    return src( copyFileList )
-        .pipe( dest( destDir ) ); // 開発ディレクトリにコピー
-};
 
 
 
@@ -147,6 +144,18 @@ const cleanDist = cb => {
 //php削除
 const cleanPHP = cb => {
     return rimraf( projectDir + '**.php', cb );
+};
+
+// コピータスク
+const copyFiles = () => { // distディレクトリにコピータスク
+  return src( copyFileList )
+      .pipe( dest( destDir ) ); // 開発ディレクトリにコピー
+};
+
+// jsをコンパイルせずそのままコピー
+const copyStaticJS = () => {
+return src( copyJS )
+  .pipe( dest( destDir + dir.js + 'static/' )) ;
 };
 
 // 画像圧縮
@@ -190,6 +199,7 @@ const watchFiles = done => {
     watch( phpFile ).on( 'change', browserReload );
     watch( imgFiles, imageMin );
     watch( copyFileList, copyFiles );
+    watch( copyJS, copyStaticJS );
     done();
 };
 

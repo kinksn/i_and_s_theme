@@ -1,6 +1,122 @@
 @import "./var";
 
 /*--------------------------------------------------------------------------
+  font(default 16px)
+---------------------------------------------------------------------------*/
+
+@mixin font-style($s: fs-16, $w: normal, $a: left, $lh: default ) {
+  
+  $sizes: (
+    fs-64: $fs-64, 
+    fs-56: $fs-56,
+    fs-40: $fs-40, 
+    fs-32: $fs-32,
+    fs-24: $fs-24,
+    fs-20: $fs-20,
+    fs-16: $fs-16,
+    fs-14: $fs-14,
+    fs-12: $fs-12
+  );
+
+  $weights: (
+    bold: $fw-700,
+    middle: $fw-500,
+    normal: $fw-400
+  );
+
+  $aligns: (
+    left: left,
+    center: center,
+    right: right
+  );
+
+  $lineHeight: (
+    default: $lh-default,
+    none: $lh-none
+  );
+
+
+  $argSize: map-get($sizes, $s);
+  $argWeight: map-get($weights, $w);
+  $argAlign:  map-get($aligns, $a);
+  $argLineHeight:  map-get($lineHeight, $lh);
+
+
+  @if map-has-key($lineHeight, $lh){
+    line-height: $argLineHeight;
+    @if ( $argLineHeight == $lh-none ) {
+      line-height: $lh-none;
+    }
+  };
+
+  @if map-has-key($sizes, $s){
+    font-size: $argSize + px;
+    @if ( $argSize == $fs-40 ) {
+      line-height: $lh-fs40;
+    }
+  };
+
+  @if map-has-key($weights, $w){
+    font-weight: $argWeight;
+    @if $w == bold {
+      letter-spacing: 0.75px;
+    }
+  };
+
+  @if map-has-key($aligns, $a){
+    text-align: $argAlign;
+  };
+  
+}
+
+
+
+
+/*--------------------------------------------------------------------------
+  hover actions
+---------------------------------------------------------------------------*/
+@mixin hover-text() {
+  transition: color .3s;
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+@mixin hover-button-btg() {
+  transition: background .3s, background-position .3s;
+  background: $color-lg-blue-to-green;
+  background-position: 1% 50%;
+  background-size: 200% auto;
+  &:hover {
+    color: $color-white;
+    background-position: 99% 50%;
+  }
+}
+
+@mixin hover-button-gto() {
+  transition: background .3s, background-position .3s;
+  background: linear-gradient(117.52deg, #2DC68E 3.95%, #CFE927 48.04%, #FFD025 102.39%);
+  box-shadow: 22px 25px 60px rgba(130, 248, 110, 0.7);
+  border-radius: 24px;
+  background-position: 1% 50%;
+  background-size: 200% auto;
+  &:hover {
+    background-position: 99% 50%;
+  }
+}
+
+@mixin hover-transparent() {
+  opacity: 1;
+  transition: opacity .3s;
+  &:hover {
+    opacity: 0.4;
+  }
+}
+
+
+
+
+/*--------------------------------------------------------------------------
   breakpoint
 ---------------------------------------------------------------------------*/
 @mixin media-pc {

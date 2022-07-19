@@ -1,6 +1,60 @@
-| <?php get_header(); ?>
+.
+  <?php get_header(); ?>
 
-div( class="l-main flex" )
-  | contents
 
-| <?php get_footer(); ?>
+article( class="l-main" )
+
+  //- main visual(mv)
+  section( class="mv" id="mv" )
+    div( class="mv__inner" )
+      div( class="mv__container" )
+        img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/ornaments/dots-green.svg", class="mv__ornament mv__ornament--green", alt="" )
+        div( class="mv__leftContainer" )
+          div( class="mv__liquidShape" )
+          div( class="mv__textWrap" )
+            h1( class="mv__tagline" )
+              | クラウドファンディングに<br>特化した写真・動画の撮影
+            p( class="mv__description" )
+              | I&Sなら高品質で安価な撮影が可能です
+        div( class="mv__rightContainer" )
+          div( class="mv__movieWrap" )
+            div( class="mv__movie" )
+              video( poster!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/poster.jpeg", loop, muted, autoplay, playsinline )
+                source( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/mv.mp4", type="video/mp4" )
+            a( href="#", class="mv__movieLink", target="_blank" )
+              span( class="mv__movieLinkText" )
+                | フルバージョンの動画を見る
+                img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/external.svg", class="mv__movieLinkImage", alt="" )
+        img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/ornaments/dots-orange.svg", class="mv__ornament mv__ornament--orange", alt="" )
+    div( class="mv__scrollLine" )
+      span( class="mv__scrollText" )
+        | S<br>C<br>R<br>O<br>L<br>L
+
+  //- About us
+  section( class="l-section aboutUs" )
+    div( class="l-section__inner" )
+      div( class="l-section__textWrap")
+        small( class="l-section__H2English" )
+          | About us
+        h2( class="l-section__H2" )
+          | クラファンに最適なイメージをご提供します
+      div( class="aboutUs__tabButtonContainer", id="js-tab" )
+        ul( class="aboutUs__tabButtonList" )
+          li( class="aboutUs__tabButtonItem is-active" )
+            div( class="aboutUs__tabButtonInner" )
+              img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/crowdfunding.svg", class="aboutUs__tabButtonIcon", alt="" )
+              h3( class="aboutUs__tabButtonText" )
+                | クラウドファンディングに<br>特化している理由
+          li( class="aboutUs__tabButtonItem" )
+            div( class="aboutUs__tabButtonInner" )
+              img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/price.svg", class="aboutUs__tabButtonIcon", alt="" )
+              h3( class="aboutUs__tabButtonText" )
+                | 他社より安く<br>提供できる理由
+        div( class="aboutUs__tabContentContainer" )
+          div( class="aboutUs__tabContent aboutUs__tabContent--crowdfunding is-active" )
+            | クラウドファンディングの講師も務める知識豊富なカメラマンが、クラファンで映える写真・動画コンテンツをワンストップで制作いたします。キャンペーンが終わった後もECサイトなどで使用できることを想定した、高いクオリティのイメージが作成可能です。
+          div( class="aboutUs__tabContent aboutUs__tabContent--price" )
+            | I&Sではクラウドファンディングの撮影に特化して制作フローを効率化しているため、簡単なイメージの聞き取りとプロダクト情報のご提示だけで、スピーディ且つ低予算でのコンテンツの制作が可能です。<br><br>
+
+.
+  <?php get_footer(); ?>
