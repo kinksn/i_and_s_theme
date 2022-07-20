@@ -228,5 +228,5 @@ exports.watch = series( pugCompile, sassCompile, jsCompile, parallel( watchFiles
 // zipタスク
 exports.zip = series( cleanDist, cleanPHP, pugCompile, sassCompile, jsCompile, imageMin, copyFiles, zipFiles );
 
-exports.test = eleteFiles;
+exports.del = deleteFiles;
 
