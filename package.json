@@ -13,7 +13,7 @@
     "dev": "cross-env NODE_ENV=production npx gulp",
     "watch": "cross-env NODE_ENV=development npx gulp watch",
     "zip": "cross-env NODE_ENV=production npx gulp zip",
-    "del": "cross-env NODE_ENV=production npx gulp del"
+    "deltest": "cross-env NODE_ENV=development npx gulp deltest"
   },
   "browserslist": [
     "last 2 Edge versions",
@@ -43,7 +43,7 @@
     "core-js": "^3.19.1",
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",
-    "del": "^7.0.0",
+    "del": "^6.0.0",
     "dotenv": "^10.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
