@@ -22,6 +22,7 @@ const imagemin = require('gulp-imagemin'), // 画像圧縮
       pngquant = require('imagemin-pngquant'); // png圧縮true
 
 const rimraf = require('rimraf'); //ファイル削除
+const del = require('del');
 
 const webpack = require( 'webpack' ),
       webpackStream = require( 'webpack-stream' );
@@ -146,6 +147,12 @@ const cleanPHP = cb => {
     return rimraf( projectDir + '**.php', cb );
 };
 
+const deleteFiles = () => {
+  del([
+    './dist/**/*'
+  ]);
+};
+
 // コピータスク
 const copyFiles = () => { // distディレクトリにコピータスク
   return src( copyFileList )
@@ -220,4 +227,6 @@ exports.watch = series( pugCompile, sassCompile, jsCompile, parallel( watchFiles
 
 // zipタスク
 exports.zip = series( cleanDist, cleanPHP, pugCompile, sassCompile, jsCompile, imageMin, copyFiles, zipFiles );
+
+exports.test = eleteFiles;
 
