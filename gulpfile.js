@@ -129,27 +129,20 @@ const browserSync =  done => {
     done();
 };
 
-//dist削除
+// theme zip
 const zipFiles = () => {
-    return src( ['./**/*.php', './dist**/assets/**/*', './style.css', './screenshot.png', './favicon.png'] )
-      .pipe( zip('i_and_s_theme.zip') )
+    return src( [ './**/*.php', './dist**/assets/**/*', './style.css', './screenshot.png' ] )
+      .pipe( zip( 'i_and_s_theme.zip' ) )
       .pipe( dest( projectDir ) );
 
 };
 
-//dist削除
-const cleanDist = cb => {
-    return rimraf( destDir, cb );
-};
-
-//php削除
-const cleanPHP = cb => {
-    return rimraf( projectDir + '**.php', cb );
-};
-
-const deleteFiles = () => {
-  del([
-    './dist/**/*'
+// dist php clean
+const cleanFiles = () => {
+  return del([
+    './dist',
+    './**.php',
+    '!./functions.php'
   ]);
 };
 
@@ -220,13 +213,10 @@ const watchFiles = done => {
 */
 
 // gulpタスク
-exports.default = series( cleanDist, cleanPHP, pugCompile, sassCompile, jsCompile, imageMin, copyFiles );
+exports.default = series( cleanFiles, sassCompile, jsCompile, imageMin, pugCompile, copyStaticJS, copyFiles );
 
 // watchタスク
 exports.watch = series( pugCompile, sassCompile, jsCompile, parallel( watchFiles, browserSync ) );
 
 // zipタスク
-exports.zip = series( cleanDist, cleanPHP, pugCompile, sassCompile, jsCompile, imageMin, copyFiles, zipFiles );
-
-exports.deltest = deleteFiles;
-
+exports.zip = series( cleanFiles, sassCompile, jsCompile, imageMin, pugCompile, copyFiles, copyStaticJS, zipFiles );
