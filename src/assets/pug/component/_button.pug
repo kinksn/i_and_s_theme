@@ -1,0 +1,3 @@
+mixin button( href, name )
+    div( class!=attributes.class ? 'c-buttonContainer ' + attributes.class : 'c-buttonContainer' )
+        a( class="c-button", href=href )= name

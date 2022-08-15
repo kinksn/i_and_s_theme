@@ -96,6 +96,12 @@ const sassCompile = () => {
 const pugCompile = () => {
     const option = {
       pretty: true,
+      filters: {
+        'php': text => {
+          text = `<?php ${ text } ?>`;
+          return text;
+        }
+      }
     };
 
     return src( devDir + dir.pug + '**/*.pug' )

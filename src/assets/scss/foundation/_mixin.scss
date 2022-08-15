@@ -1,4 +1,4 @@
-@import "./var";
+@use "var";
 
 /*--------------------------------------------------------------------------
   font(default 16px)
@@ -7,21 +7,21 @@
 @mixin font-style($s: fs-16, $w: normal, $a: left, $lh: default ) {
   
   $sizes: (
-    fs-64: $fs-64, 
-    fs-56: $fs-56,
-    fs-40: $fs-40, 
-    fs-32: $fs-32,
-    fs-24: $fs-24,
-    fs-20: $fs-20,
-    fs-16: $fs-16,
-    fs-14: $fs-14,
-    fs-12: $fs-12
+    fs-64: var.$fs-64, 
+    fs-56: var.$fs-56,
+    fs-40: var.$fs-40, 
+    fs-32: var.$fs-32,
+    fs-24: var.$fs-24,
+    fs-20: var.$fs-20,
+    fs-16: var.$fs-16,
+    fs-14: var.$fs-14,
+    fs-12: var.$fs-12
   );
 
   $weights: (
-    bold: $fw-700,
-    middle: $fw-500,
-    normal: $fw-400
+    bold: var.$fw-700,
+    middle: var.$fw-500,
+    normal: var.$fw-400
   );
 
   $aligns: (
@@ -31,8 +31,8 @@
   );
 
   $lineHeight: (
-    default: $lh-default,
-    none: $lh-none
+    default: var.$lh-default,
+    none: var.$lh-none
   );
 
 
@@ -44,15 +44,15 @@
 
   @if map-has-key($lineHeight, $lh){
     line-height: $argLineHeight;
-    @if ( $argLineHeight == $lh-none ) {
-      line-height: $lh-none;
+    @if ( $argLineHeight == var.$lh-none ) {
+      line-height: var.$lh-none;
     }
   };
 
   @if map-has-key($sizes, $s){
     font-size: $argSize + px;
-    @if ( $argSize == $fs-40 ) {
-      line-height: $lh-fs40;
+    @if ( $argSize == var.$fs-40 ) {
+      line-height: var.$lh-fs40;
     }
   };
 
@@ -78,17 +78,17 @@
 @mixin hover-text() {
   transition: color .3s;
   &:hover {
-    color: $color-primary;
+    color: var.$color-primary;
   }
 }
 
 @mixin hover-button-btg() {
   transition: background .3s, background-position .3s;
-  background: $color-lg-blue-to-green;
+  background: var.$color-lg-blue-to-green;
   background-position: 1% 50%;
   background-size: 200% auto;
   &:hover {
-    color: $color-white;
+    color: var.$color-white;
     background-position: 99% 50%;
   }
 }
@@ -120,12 +120,12 @@
   breakpoint
 ---------------------------------------------------------------------------*/
 @mixin media-pc {
-  @media screen and (min-width: $breakpoint-mobile + 1){
+  @media screen and (min-width: var.$breakpoint-mobile + 1){
     @content;
   }
 }
 @mixin media-sp {
-  @media screen and (max-width: $breakpoint-mobile){
+  @media screen and (max-width: var.$breakpoint-mobile){
     @content;
   }
 }

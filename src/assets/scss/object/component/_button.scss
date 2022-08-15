@@ -1,0 +1,13 @@
+@use "../../foundation/var";
+@use "../../foundation/mixin";
+
+.c-button {
+    @include mixin.font-style($s: fs-20, $w: bold, $lh: none);
+    @include mixin.hover-transparent();
+    color: var.$color-white;
+    display: inline-block;
+    padding: 20px 28px;
+    border-radius: 100vh;
+    background: linear-gradient(90deg, #2EC7C7 0%, #08E279 100%);
+    box-shadow: 0px 24px 64px rgba(26, 236, 160, 0.32);
+}

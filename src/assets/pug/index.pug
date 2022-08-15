@@ -1,5 +1,7 @@
-.
-  <?php get_header(); ?>
+:php get_header();
+include component/_button.pug
+
+
 
 
 article( class="l-main top" )
@@ -30,7 +32,17 @@ article( class="l-main top" )
     div( class="mv__scrollLine" )
       span( class="mv__scrollText" )
         | S<br>C<br>R<br>O<br>L<br>L
-
+  //- .
+  //-   <?php
+  //-     $args = array('post_type' => 'works', 'posts_per_page' => 5);
+  //-     $the_query = new WP_Query($args); if($the_query->have_posts()):
+  //-   ?>
+  //-   <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
+  //-   <?php endwhile; ?>
+  //-   <?php echo get_the_title(); ?>
+  //-   <?php the_content(); ?>
+  //-   <?php else: ?>
+  //-   <?php endif; ?>
   //- About us
   section( class="l-section aboutUs" )
     div( class="l-section__inner" )
@@ -56,6 +68,7 @@ article( class="l-main top" )
             | クラウドファンディングの講師も務める知識豊富なカメラマンが、クラファンで映える写真・動画コンテンツをワンストップで制作いたします。キャンペーンが終わった後もECサイトなどで使用できることを想定した、高いクオリティのイメージが作成可能です。
           div( class="aboutUs__tabContent aboutUs__tabContent--price" )
             | I&Sではクラウドファンディングの撮影に特化して制作フローを効率化しているため、簡単なイメージの聞き取りとプロダクト情報のご提示だけで、スピーディ且つ低予算でのコンテンツの制作が可能です。<br><br>
+      +button( '#', 'もっと詳しく知る' )( class="aboutUs__moreButton" )
 
   //- Strength
   section( class="l-section l-section--bgGradientGtoO strength" )
@@ -67,7 +80,24 @@ article( class="l-main top" )
           | I&S撮影スタジオが<br class="u-onlySP">できること
         p( class="l-section__leadPragraph" )
           | クラウドファンディングの<br class="u-onlySP">撮影だけではありません
-      div( class="" )
+      div( class="strength__container" )
+        div( class="stregth__inner" )
+          div( class="strength__textBox" )
+            h3( class="strength__h3" )
+              img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/pen.svg", class="strength__h3Icon", alt="" )
+              span( class="strength__h3Text" )
+                | ライティングの相談
+            p( class="strength__description" )
+              | 支援額4000万円を超えるプロジェクトなど、数多くのクラウドファンディングのランディングページを手がけたライターが文章の執筆をいたします。
+          div( class="strength__hr" )
+          div( class="strength__textBox" )
+            h3( class="strength__h3" )
+              img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/moviePicture.svg", class="strength__h3Icon", alt="" )
+              span( class="strength__h3Text" )
+                | 幅広いジャンルの写真・動画制作
+            p( class="strength__description" )
+              | クラウドファンディングに限らず、ECサイトや雑誌などで使用する幅広い種類の商品撮影の他、インタビューやドキュメンタリーの撮影も可能です。
+
 
   //- Works
   section( class="l-section works" )
@@ -79,7 +109,77 @@ article( class="l-main top" )
           | 撮影事例
         p( class="l-section__leadPragraph" )
           | クラウドファンディングサイトmachi-yaで、当時最高額の支援額となる4400万円を売り上げた超薄型財布「Tenuis3」や、<br>OIOI（マルイ）がライフハッカー［日本版］編集部とタッグを組み製作したバックパック「Teleffice」などを担当。
-      div( class="" )
+      div( class="works__container" )
+        ul( class="works__list" )
+          li( class="works__item" )
+            a( class="works__link", href="#" )
+              div( class="works__thumbWrap" )
+                img( class="works__thumb", src="https://images.unsplash.com/photo-1657299170935-31e068229885?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80", alt="" )
+              div( class="works__textWrap" )
+                h3( class="works__h3" )
+                  | INTERSTATE DESIGN 様
+                p( class="works__description" )
+                  | 文章だけで伝えられない部分を視覚化し「オンリーワン」の世界観を持つ写真や動画に仕上げられるチーム
+                div( class="works__categories" )
+                  span( class="works__categoryTitle" )
+                    | カテゴリ：
+                  ul( class="works__categoryList" )
+                    li( class="works__categoryItem" )
+                      | 写真・動画撮影
+            a( class="works__voice", href="#" )
+              | お客様の声
+          li( class="works__item" )
+            a( class="works__link", href="#" )
+              div( class="works__thumbWrap" )
+                img( class="works__thumb", src="https://images.unsplash.com/photo-1657299170935-31e068229885?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80", alt="" )
+              div( class="works__textWrap" )
+                h3( class="works__h3" )
+                  | INTERSTATE DESIGN 様
+                p( class="works__description" )
+                  | 文章だけで伝えられない部分を視覚化し「オンリーワン」の世界観を持つ写真や動画に仕上げられるチーム
+                div( class="works__categories" )
+                  span( class="works__categoryTitle" )
+                    | カテゴリ：
+                  ul( class="works__categoryList" )
+                    li( class="works__categoryItem" )
+                      | 写真・動画撮影
+            a( class="works__voice", href="#" )
+              | お客様の声
+          li( class="works__item" )
+            a( class="works__link", href="#" )
+              div( class="works__thumbWrap" )
+                img( class="works__thumb", src="https://images.unsplash.com/photo-1657299170935-31e068229885?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80", alt="" )
+              div( class="works__textWrap" )
+                h3( class="works__h3" )
+                  | INTERSTATE DESIGN 様
+                p( class="works__description" )
+                  | 文章だけで伝えられない部分を視覚化し「オンリーワン」の世界観を持つ写真や動画に仕上げられるチーム
+                div( class="works__categories" )
+                  span( class="works__categoryTitle" )
+                    | カテゴリ：
+                  ul( class="works__categoryList" )
+                    li( class="works__categoryItem" )
+                      | 写真・動画撮影
+            a( class="works__voice", href="#" )
+              | お客様の声
+          li( class="works__item" )
+            a( class="works__link", href="#" )
+              div( class="works__thumbWrap" )
+                img( class="works__thumb", src="https://images.unsplash.com/photo-1657299170935-31e068229885?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80", alt="" )
+              div( class="works__textWrap" )
+                h3( class="works__h3" )
+                  | INTERSTATE DESIGN 様
+                p( class="works__description" )
+                  | 文章だけで伝えられない部分を視覚化し「オンリーワン」の世界観を持つ写真や動画に仕上げられるチーム
+                div( class="works__categories" )
+                  span( class="works__categoryTitle" )
+                    | カテゴリ：
+                  ul( class="works__categoryList" )
+                    li( class="works__categoryItem" )
+                      | 写真・動画撮影
+            a( class="works__voice", href="#" )
+              | お客様の声
+      +button( '#', 'もっと事例を見る' )( class="works__moreButton" )
 
   //- Plan
   section( class="l-section l-section--bgGradientGtoO plan" )
@@ -104,5 +204,4 @@ article( class="l-main top" )
       div( class="" )
 
 
-.
-  <?php get_footer(); ?>
+:php get_footer();

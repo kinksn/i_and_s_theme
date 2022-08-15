@@ -4,6 +4,10 @@
 // $breakpoint-tablet: 959px;
 $breakpoint-mobile: 1024px;
 
+
+// assets path
+$assetsPath: '../../../dist/assets/';
+
 // Common Parts
 $header-height: 48px;
 
@@ -17,10 +21,11 @@ $color-white: #fff;
 // Text color
 $color-text-base: #495545;
 $color-text-green: #2F6742;
+$color-text-green-light: #ADBDA7;
 
 // gradient color
 $color-lg-green-to-orange: linear-gradient(107.32deg, #2CC68E 0%, #6CD75B 8.82%, #E7CC3B 87.7%, #F0C118 99.64%);
-$color-lg-green-to-orange-light: linear-gradient(107.69deg, rgba(240, 194, 26, 0.2) -25.71%, rgba(48, 199, 140, 0.2) 96.81%);;
+$color-lg-green-to-orange-light: linear-gradient(107.69deg, rgba(240, 194, 26, 0.2) -25.71%, rgba(48, 199, 140, 0.2) 96.81%);
 $color-lg-blue-to-green: linear-gradient(90deg, #2EC7C7 0%, #08E279 100%);
 
 
