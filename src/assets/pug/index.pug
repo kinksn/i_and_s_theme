@@ -1,12 +1,13 @@
 :php get_header();
 include component/_button.pug
+include component/_section.pug
 
 
 
 
 article( class="l-main top" )
 
-  //- main visual(mv)
+  //- main visual
   section( class="mv" id="mv" )
     div( class="mv__inner" )
       div( class="mv__container" )
@@ -32,6 +33,8 @@ article( class="l-main top" )
     div( class="mv__scrollLine" )
       span( class="mv__scrollText" )
         | S<br>C<br>R<br>O<br>L<br>L
+
+
   //- .
   //-   <?php
   //-     $args = array('post_type' => 'works', 'posts_per_page' => 5);
@@ -43,74 +46,57 @@ article( class="l-main top" )
   //-   <?php the_content(); ?>
   //-   <?php else: ?>
   //-   <?php endif; ?>
-  //- About us
-  section( class="l-section aboutUs" )
-    div( class="l-section__inner" )
-      div( class="l-section__textWrap")
-        small( class="l-section__H2English" )
-          | About us
-        h2( class="l-section__H2" )
-          | クラファンに最適なイメージをご提供します
-      div( class="aboutUs__tabButtonContainer", id="js-tab" )
-        ul( class="aboutUs__tabButtonList" )
-          li( class="aboutUs__tabButtonItem is-active" )
-            div( class="aboutUs__tabButtonInner" )
-              img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/crowdfunding.svg", class="aboutUs__tabButtonIcon aboutUs__tabButtonIcon--crowdfunding", alt="" )
-              h3( class="aboutUs__tabButtonText" )
-                | クラウドファンディング<br>に特化している理由
-          li( class="aboutUs__tabButtonItem" )
-            div( class="aboutUs__tabButtonInner" )
-              img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/price.svg", class="aboutUs__tabButtonIcon aboutUs__tabButtonIcon--price", alt="" )
-              h3( class="aboutUs__tabButtonText" )
-                | 他社より安く<br>提供できる理由
-        div( class="aboutUs__tabContentContainer" )
-          div( class="aboutUs__tabContent aboutUs__tabContent--crowdfunding is-active" )
-            | クラウドファンディングの講師も務める知識豊富なカメラマンが、クラファンで映える写真・動画コンテンツをワンストップで制作いたします。キャンペーンが終わった後もECサイトなどで使用できることを想定した、高いクオリティのイメージが作成可能です。
-          div( class="aboutUs__tabContent aboutUs__tabContent--price" )
-            | I&Sではクラウドファンディングの撮影に特化して制作フローを効率化しているため、簡単なイメージの聞き取りとプロダクト情報のご提示だけで、スピーディ且つ低予算でのコンテンツの制作が可能です。<br><br>
-      +button( '#', 'もっと詳しく知る' )( class="aboutUs__moreButton" )
-
-  //- Strength
-  section( class="l-section l-section--bgGradientGtoO strength" )
-    div( class="l-section__inner" )
-      div( class="l-section__textWrap")
-        small( class="l-section__H2English" )
-          | Strength
-        h2( class="l-section__H2" )
-          | I&S撮影スタジオが<br class="u-onlySP">できること
-        p( class="l-section__leadPragraph" )
-          | クラウドファンディングの<br class="u-onlySP">撮影だけではありません
-      div( class="strength__container" )
-        div( class="stregth__inner" )
-          div( class="strength__textBox" )
-            h3( class="strength__h3" )
-              img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/pen.svg", class="strength__h3Icon", alt="" )
-              span( class="strength__h3Text" )
-                | ライティングの相談
-            p( class="strength__description" )
-              | 支援額4000万円を超えるプロジェクトなど、数多くのクラウドファンディングのランディングページを手がけたライターが文章の執筆をいたします。
-          div( class="strength__hr" )
-          div( class="strength__textBox" )
-            h3( class="strength__h3" )
-              img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/moviePicture.svg", class="strength__h3Icon", alt="" )
-              span( class="strength__h3Text" )
-                | 幅広いジャンルの写真・動画制作
-            p( class="strength__description" )
-              | クラウドファンディングに限らず、ECサイトや雑誌などで使用する幅広い種類の商品撮影の他、インタビューやドキュメンタリーの撮影も可能です。
 
 
-  //- Works
-  section( class="l-section works" )
-    div( class="l-section__inner" )
-      div( class="l-section__textWrap")
-        small( class="l-section__H2English" )
-          | Works
-        h2( class="l-section__H2" )
-          | 撮影事例
-        p( class="l-section__leadPragraph" )
-          | クラウドファンディングサイトmachi-yaで、当時最高額の支援額となる4400万円を売り上げた超薄型財布「Tenuis3」や、<br>OIOI（マルイ）がライフハッカー［日本版］編集部とタッグを組み製作したバックパック「Teleffice」などを担当。
-      div( class="works__container" )
-        ul( class="works__list" )
+  //- about us
+  +section( 'About us', 'クラファンに最適なイメージをご提供します')( class="aboutUs" )
+    div( class="aboutUs__tabButtonContainer", id="js-tab" )
+      ul( class="aboutUs__tabButtonList" )
+        li( class="aboutUs__tabButtonItem is-active" )
+          div( class="aboutUs__tabButtonInner" )
+            img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/crowdfunding.svg", class="aboutUs__tabButtonIcon aboutUs__tabButtonIcon--crowdfunding", alt="" )
+            h3( class="aboutUs__tabButtonText" )
+              | クラウドファンディング<br>に特化している理由
+        li( class="aboutUs__tabButtonItem" )
+          div( class="aboutUs__tabButtonInner" )
+            img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/price.svg", class="aboutUs__tabButtonIcon aboutUs__tabButtonIcon--price", alt="" )
+            h3( class="aboutUs__tabButtonText" )
+              | 他社より安く<br>提供できる理由
+      div( class="aboutUs__tabContentContainer" )
+        div( class="aboutUs__tabContent aboutUs__tabContent--crowdfunding is-active" )
+          | クラウドファンディングの講師も務める知識豊富なカメラマンが、クラファンで映える写真・動画コンテンツをワンストップで制作いたします。キャンペーンが終わった後もECサイトなどで使用できることを想定した、高いクオリティのイメージが作成可能です。
+        div( class="aboutUs__tabContent aboutUs__tabContent--price" )
+          | I&Sではクラウドファンディングの撮影に特化して制作フローを効率化しているため、簡単なイメージの聞き取りとプロダクト情報のご提示だけで、スピーディ且つ低予算でのコンテンツの制作が可能です。<br><br>
+    +button( '#', 'もっと詳しく知る' )( class="aboutUs__moreButton" )
+
+
+  //- strength
+  +section( 'Strength', 'I&S撮影スタジオが<br class="u-onlySP">できること', 'クラウドファンディングの<br class="u-onlySP">撮影だけではありません' )( class="l-section--bgGradientGtoO strength" )
+    div( class="strength__container" )
+      div( class="stregth__inner" )
+        div( class="strength__textBox" )
+          h3( class="strength__h3" )
+            img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/pen.svg", class="strength__h3Icon", alt="" )
+            span( class="strength__h3Text" )
+              | ライティングの相談
+          p( class="strength__description" )
+            | 支援額4000万円を超えるプロジェクトなど、数多くのクラウドファンディングのランディングページを手がけたライターが文章の執筆をいたします。
+        div( class="strength__hr" )
+        div( class="strength__textBox" )
+          h3( class="strength__h3" )
+            img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/moviePicture.svg", class="strength__h3Icon", alt="" )
+            span( class="strength__h3Text" )
+              | 幅広いジャンルの写真・動画制作
+          p( class="strength__description" )
+            | クラウドファンディングに限らず、ECサイトや雑誌などで使用する幅広い種類の商品撮影の他、インタビューやドキュメンタリーの撮影も可能です。
+
+
+  //- works
+  - var n = 0;
+  +section( 'Works', '撮影事例', 'クラウドファンディングサイトmachi-yaで、当時最高額の支援額となる4400万円を売り上げた超薄型財布「Tenuis3」や、<br>OIOI（マルイ）がライフハッカー［日本版］編集部とタッグを組み製作したバックパック「Teleffice」などを担当。' )( class="works" )
+    div( class="works__container" )
+      ul( class="works__list" )
+        - for ( var x = 0; x < 4; x++ )
           li( class="works__item" )
             a( class="works__link", href="#" )
               div( class="works__thumbWrap" )
@@ -128,80 +114,93 @@ article( class="l-main top" )
                       | 写真・動画撮影
             a( class="works__voice", href="#" )
               | お客様の声
-          li( class="works__item" )
-            a( class="works__link", href="#" )
-              div( class="works__thumbWrap" )
-                img( class="works__thumb", src="https://images.unsplash.com/photo-1657299170935-31e068229885?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80", alt="" )
-              div( class="works__textWrap" )
-                h3( class="works__h3" )
-                  | INTERSTATE DESIGN 様
-                p( class="works__description" )
-                  | 文章だけで伝えられない部分を視覚化し「オンリーワン」の世界観を持つ写真や動画に仕上げられるチーム
-                div( class="works__categories" )
-                  span( class="works__categoryTitle" )
-                    | カテゴリ：
-                  ul( class="works__categoryList" )
-                    li( class="works__categoryItem" )
-                      | 写真・動画撮影
-            a( class="works__voice", href="#" )
-              | お客様の声
-          li( class="works__item" )
-            a( class="works__link", href="#" )
-              div( class="works__thumbWrap" )
-                img( class="works__thumb", src="https://images.unsplash.com/photo-1657299170935-31e068229885?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80", alt="" )
-              div( class="works__textWrap" )
-                h3( class="works__h3" )
-                  | INTERSTATE DESIGN 様
-                p( class="works__description" )
-                  | 文章だけで伝えられない部分を視覚化し「オンリーワン」の世界観を持つ写真や動画に仕上げられるチーム
-                div( class="works__categories" )
-                  span( class="works__categoryTitle" )
-                    | カテゴリ：
-                  ul( class="works__categoryList" )
-                    li( class="works__categoryItem" )
-                      | 写真・動画撮影
-            a( class="works__voice", href="#" )
-              | お客様の声
-          li( class="works__item" )
-            a( class="works__link", href="#" )
-              div( class="works__thumbWrap" )
-                img( class="works__thumb", src="https://images.unsplash.com/photo-1657299170935-31e068229885?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80", alt="" )
-              div( class="works__textWrap" )
-                h3( class="works__h3" )
-                  | INTERSTATE DESIGN 様
-                p( class="works__description" )
-                  | 文章だけで伝えられない部分を視覚化し「オンリーワン」の世界観を持つ写真や動画に仕上げられるチーム
-                div( class="works__categories" )
-                  span( class="works__categoryTitle" )
-                    | カテゴリ：
-                  ul( class="works__categoryList" )
-                    li( class="works__categoryItem" )
-                      | 写真・動画撮影
-            a( class="works__voice", href="#" )
-              | お客様の声
-      +button( '#', 'もっと事例を見る' )( class="works__moreButton" )
+    +button( '#', 'もっと事例を見る' )( class="works__moreButton" )
 
-  //- Plan
-  section( class="l-section l-section--bgGradientGtoO plan" )
-    div( class="l-section__inner" )
-      div( class="l-section__textWrap")
-        small( class="l-section__H2English" )
-          | Plan
-        h2( class="l-section__H2" )
-          | 料金プラン
-      div( class="" )
 
-  //- Flow
-  section( class="l-section works" )
-    div( class="l-section__inner" )
-      div( class="l-section__textWrap")
-        small( class="l-section__H2English" )
-          | Flow
-        h2( class="l-section__H2" )
-          | ご依頼から納品までの流れ
-        p( class="l-section__leadPragraph" )
-          | サンプルの受け取りから最短で<br class="u-onlySP">2週間の納品が可能です。
-      div( class="" )
+  //- plan
+  +section( 'Plan', '料金プラン' )( class="l-section--bgGradientGtoO plan" )
+    div( class="plan__container" )
+      h3( class="plan__h3" )
+        | 基本プラン
+      div( class="plan__inner" )
+        p( class="plan__price" )
+          | 300,000円
+        p( class="plan__supplement" )
+          | 写真30枚・素材加工 + ショート動画（50秒程度）
+        p( class="plan__priceDescription" )
+          | カバンや財布と言ったプロダクトのクラウドファンディングの標準的なセットプラン
+        div( class="plan__areaContainer" )
+          p( class="plan__areaLabel" )
+            | 対応可能地域
+          div( class="plan__areaWrap" )
+            p( class="plan__areaDescription" )
+              | 関東（東京・神奈川・埼玉・千葉・茨城・栃木）<br><span class="u-bold">※対面でなく撮影素材の郵送の場合は全国で対応可能</span>
+    +button( '#', '他のプランも見る' )( class="plan__moreButton" )
+
+
+  //- flow
+  +section( 'Flow', 'ご依頼から納品までの流れ', 'サンプルの受け取りから最短で<br class="u-onlySP">2週間の納品が可能です。' )( class="flow" )
+    div( class="flow__container" )
+      ul( class="flow__list" )
+        li( class="flow__item flow__item--afterLine" )
+          div( class="flow__itemInner" )
+            span( class="flow__count" )= 1
+            h3( class="flow__h3" )
+              | お問い合わせ
+            p( class="flow__description" )
+              | 下記のお問合せフォームより、ご要望をお伺いします
+        li( class="flow__item flow__item--afterLine" )
+          div( class="flow__itemInner" )
+            span( class="flow__count" )= 2
+            h3( class="flow__h3" )
+              | ヒアリング
+            p( class="flow__description" )
+              | I&Sのスタッフが商品の強みや撮影イメージの聞き取りを行います
+        li( class="flow__item" )
+          div( class="flow__itemInner" )
+            span( class="flow__count" )= 3
+            h3( class="flow__h3" )
+              | 撮影プランの作成
+            p( class="flow__description" )
+              | ヒアリングを基に、モデル・撮影場所の選定と撮影プランを作成します
+      picture( class="flow__bottom" )
+        source( srcset!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-green-sp.svg", media="(max-width: 1024px)")
+        img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-green.svg", class="flow__bottomLine", alt="" )
+      ul( class="flow__list" )
+        li( class="flow__item flow__item--afterLine" )
+          div( class="flow__itemInner" )
+            span( class="flow__count" )= 4
+            h3( class="flow__h3" )
+              | 撮影
+            p( class="flow__description" )
+              | プランをもとに、商品の撮影をします<br>※1〜2日程
+        li( class="flow__item flow__item--afterLine" )
+          div( class="flow__itemInner" )
+            span( class="flow__count" )= 5
+            h3( class="flow__h3" )
+              | 編集・初稿作成
+            p( class="flow__description" )
+              | 撮影した素材を元に編集を行った写真・動画をご送付します<br>※通常10日間程
+        li( class="flow__item" )
+          div( class="flow__itemInner" )
+            span( class="flow__count" )= 6
+            h3( class="flow__h3" )
+              | ご確認・文字入れ
+            p( class="flow__description" )
+              | 初稿の写真から表紙に使用する写真をご選定いただき、商品名やコピーの文字入れます
+      picture( class="flow__bottom" )
+        source( srcset!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-orange-sp.svg", media="(max-width: 1024px)")
+        img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-orange.svg", class="flow__bottomLine", alt="" )
+      ul( class="flow__list" )
+        li( class="flow__item" )
+          div( class="flow__itemInner" )
+            span( class="flow__count flow__count--orange" )= 7
+            h3( class="flow__h3 flow__h3--orange" )
+              | 最終納品
+            p( class="flow__description" )
+              | コンテンツは使用制限も無いため、ECサイトへの出品等にもご利用可能です
+
+
 
 
 :php get_footer();

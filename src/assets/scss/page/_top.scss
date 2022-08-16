@@ -626,3 +626,178 @@
         margin-top: 48px;
     }
 }
+
+
+
+
+/*--------------------------------------------------------------------------
+  plan
+---------------------------------------------------------------------------*/
+
+.plan__container {
+    max-width: 420px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    border: 2px solid var.$color-primary-dark;
+    background-color: var.$color-white;
+    overflow: hidden;
+}
+
+.plan__h3 {
+    @include mixin.font-style($s: fs-20, $w: bold, $a: center, $lh: none);
+    color: var.$color-white;
+    padding: 24px 0;
+    background-color: var.$color-primary;
+}
+
+.plan__inner {
+    padding: 24px 24px 40px;
+    @include mixin.media-sp() {
+        padding: 20px 12px 40px;
+    }
+}
+
+.plan__price {
+    @include mixin.font-style($s: fs-36, $w: bold, $a: center);
+}
+
+.plan__supplement {
+    @include mixin.font-style($s: fs-12, $w: bold, $a: center);
+}
+
+.plan__priceDescription {
+    margin-top: 24px;
+}
+
+.plan__areaContainer {
+    margin-top: 40px;
+}
+
+.plan__areaLabel {
+    @include mixin.font-style($s: fs-12, $w: bold);
+}
+
+.plan__areaWrap {
+    margin-top: 12px;
+    border-radius: 2px;
+    padding: 20px 16px;
+    background-color: #F8FAFC;
+}
+
+.plan__areaDescription {
+    @include mixin.font-style($s: fs-14, $a: center);
+    @include mixin.media-sp() {
+        @include mixin.font-style($s: fs-12);
+    }
+}
+
+.plan__moreButton {
+    margin-top: 60px;
+    @include mixin.media-sp() {
+        margin-top: 48px;
+    }
+}
+
+
+
+
+/*--------------------------------------------------------------------------
+  flow
+---------------------------------------------------------------------------*/
+
+.flow__container {
+    max-width: 1120px;
+    @include mixin.media-pc() {
+        margin: 52px 40px 0 40px;
+    }
+    @include mixin.media-sp() {
+        margin-top: 16px;
+    }
+}
+
+.flow__list {
+    display: flex;
+    justify-content: center;
+    @include mixin.media-sp() {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+.flow__item {
+    display: flex;
+    align-items: stretch;
+    @include mixin.media-sp() {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &--afterLine {
+        &::after {
+            content: '';
+            width: 80px;
+            background-image: url('#{var.$assetsPath}img/index/ornaments/flow_vetical_line.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            @include mixin.media-sp() {
+                width: 80px;
+                height: 80px;
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+.flow__itemInner {
+    position: relative;
+    background-color: var.$color-white;
+    border-radius: 8px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+    max-width: 320px;
+    padding: 32px 24px 40px 24px;
+    @include mixin.media-sp() {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.flow__count {
+    @include mixin.font-style($s: fs-64, $w: bold);
+    font-family: var.$font-en;
+    color: var.$color-primary;
+    position: absolute;
+    left: -20px;
+    top: -60px;
+    @include mixin.media-sp() {
+        left: 20px;
+    }
+
+    &--orange {
+        color: var.$color-secndary;
+    }
+}
+
+.flow__h3 {
+    @include mixin.font-style($s: fs-20, $w: bold, $a: center, $lh: none);
+    color: var.$color-primary;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #EEE;
+
+    &--orange {
+        color: var.$color-secndary;
+    }
+}
+
+.flow__description {
+    margin-top: 32px;
+}
+
+.flow__bottomLine {
+    margin: 12px 0;
+    @include mixin.media-sp() {
+        width: 80px;
+        height: 80px;
+        margin: 12px auto;
+    }
+}
