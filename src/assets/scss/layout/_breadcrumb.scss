@@ -1,0 +1,38 @@
+@use "../foundation/var";
+@use "../foundation/mixin";
+
+
+.l-breadcrumb {
+    padding: 16px;
+    @include mixin.media-sp() {
+        padding: 12px 20px;
+    }
+}
+
+.l-breadcrumb__list {
+    display: flex;
+    align-items: center;
+}
+
+.l-breadcrumb__item {
+    @include mixin.font-style($s: fs-12);
+    display: flex;
+    align-items: center;
+}
+
+.l-breadcrumb__link {
+    display: flex;
+    align-items: center;
+    transition: color .3s;
+    &:hover {
+        color: var.$color-primary;
+    }
+}
+
+.l-breadcrumb__homeIcon {
+    margin-right: 4px;
+}
+
+.l-breadcrumb__arrowIcon {
+    margin: 0 8px;
+}

@@ -1,0 +1,39 @@
+@use "../foundation/var";
+@use "../foundation/mixin";
+
+
+.l-subHeader {
+    width: 100%;
+    height: 264px;
+    margin-top: 64px;
+    background: var.$color-lg-green-to-orange-dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include mixin.media-sp() {
+        margin-top: 48px;
+        height: 160px;
+    }
+}
+
+.l-subHeader__container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.l-subHeader__en {
+    @include mixin.font-style($s: fs-32, $w: bold, $a: center);
+    color: rgba(var.$color-white, 0.6);
+    @include mixin.media-sp() {
+        @include mixin.font-style($s: fs-24, $w: bold);
+    }
+}
+
+.l-subHeader__h1 {
+    @include mixin.font-style($s: fs-32, $w: bold, $a: center);
+    color: var.$color-white;
+    @include mixin.media-sp() {
+        @include mixin.font-style($s: fs-24, $w: bold, $a: center);
+    }
+}

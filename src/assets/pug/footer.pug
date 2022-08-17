@@ -8,7 +8,8 @@ include component/_section.pug
 footer( class="l-footer", id="footer" )
   +section('Contact', 'お問合せ・お見積もり')( class="l-footer__container" )
     div( class="l-footer__form" )
-      :php echo do_shortcode('[contact-form-7 id="21" title="コンタクトフォーム 1"]');
+      :php
+        echo do_shortcode('[contact-form-7 id="21" title="コンタクトフォーム 1"]');
 div( class="l-copyright" )
   small( class="l-copyright__text" )
     | &copy; I＆S Production 

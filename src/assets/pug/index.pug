@@ -6,7 +6,7 @@ include component/_section.pug
 
 
 
-article( class="l-main top" )
+article( class="l-main", id="top" )
 
   //- main visual
   section( class="mv" id="mv" )
@@ -51,8 +51,8 @@ article( class="l-main top" )
 
 
   //- about us
-  +section( 'About us', 'クラファンに最適なイメージをご提供します')( class="aboutUs" )
-    div( class="aboutUs__tabButtonContainer", id="js-tab" )
+  +section( 'About us', 'クラファンに最適なイメージをご提供します')
+    div( class="aboutUs", id="js-tab" )
       ul( class="aboutUs__tabButtonList" )
         li( class="aboutUs__tabButtonItem is-active" )
           div( class="aboutUs__tabButtonInner" )
@@ -126,7 +126,7 @@ article( class="l-main top" )
         | 基本プラン
       div( class="plan__inner" )
         p( class="plan__price" )
-          | #{ basicPlanPrice }
+          | #{ basicPlanPrice}
         p( class="plan__supplement" )
           | 写真30枚・素材加工 + ショート動画（50秒程度）
         p( class="plan__priceDescription" )

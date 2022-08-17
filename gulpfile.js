@@ -88,6 +88,7 @@ const sassCompile = () => {
         .pipe(autoprefixer())
         .pipe(postcss([
           require('tailwindcss'),
+          require('tailwindcss/nesting'),
           require('autoprefixer')
          ]))
         .pipe(dest( destDir + dir.css )); // 開発ディレクトリにcss書き出し
