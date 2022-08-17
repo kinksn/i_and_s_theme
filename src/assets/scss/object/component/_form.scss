@@ -1,0 +1,119 @@
+@use "../../foundation/var";
+@use "../../foundation/mixin";
+
+
+.c-form {
+    br {
+        display: none;
+    }
+}
+
+.c-form__item {
+    margin-bottom: 32px;
+
+    &--2row {
+        display: flex;
+        justify-content: space-between;
+        @include mixin.media-sp() {
+            flex-direction: column;
+        }
+    }
+}
+
+.c-form__row {
+    max-width: 340px;
+    @include mixin.media-sp() {
+        max-width: 100%;
+        margin-bottom: 32px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.c-form__label {
+    @include mixin.font-style($s: fs-12, $w: bold, $lh: none);
+    color: var.$color-text-base;
+    display: block;
+}
+
+.c-form__require {
+    color: var.$color-primary;
+}
+
+.extend-form-common-style {
+    display: block;
+    box-sizing: border-box;
+    margin-top: 8px;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #BFDBB5;
+    background-color: var.$color-white;
+    width: 100%;
+    &:focus {
+        outline: none;
+        border: 1px solid var.$color-primary;
+    }
+}
+
+.c-form__inputText {
+    @extend .extend-form-common-style;
+    
+}
+
+.c-form__selectWrap {
+    position: relative;
+
+    &::after {
+        content: '';
+        display: flex;
+        width: 11px;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background-image: url('#{var.$assetsPath}img/common/icons/selectTriangle.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 16px;
+        margin: auto 0;
+        pointer-events: none;
+    }
+}
+
+.c-form__select {
+    @extend .extend-form-common-style;
+    outline: none;
+    appearance: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.c-form__textarea {
+    @extend .extend-form-common-style;
+}
+
+.c-form__submitWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .wpcf7-spinner {
+        display: none;
+    }
+}
+
+.c-form__submit {
+    @include mixin.hover-transparent();
+    @include mixin.font-style($w: bold, $lh: none);
+    color: var.$color-white;
+    padding: 28px 24px;
+    border-radius: 24px;
+    background: linear-gradient(117.52deg, #2DC68E 3.95%, #B9EE24 38.3%, #E9ED10 73.17%, #F4D010 102.39%);
+    box-shadow: 0px 20px 60px rgba(91, 210, 71, 0.4);
+    cursor: pointer;
+}
+

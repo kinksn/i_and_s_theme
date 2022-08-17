@@ -1,0 +1,69 @@
+@use "../foundation/var";
+@use "../foundation/mixin";
+
+
+.l-footer {
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 464px;
+        background: linear-gradient(107.32deg, #2CC68E 0%, #70D34E 51.38%, #FFBC10 99.64%);
+    }
+}
+
+.l-footer__container {
+    .l-section__H2English {
+        background: none;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: currentColor;
+        color: rgba(var.$color-white, 0.6);
+    }
+    .l-section__H2 {
+        color: var.$color-white;
+    }
+}
+
+.l-footer__form {
+    max-width: 796px;
+    padding: 64px 40px 40px 40px;
+    width: 100%;
+    background-color: var.$color-white;
+    box-shadow: 0px 20px 60px rgba(118, 208, 165, 0.12);
+    border-radius: 16px;
+    @include mixin.media-sp() {
+        padding: 40px 20px;
+    }
+}
+
+
+
+
+/*--------------------------------------------------------------------------
+  copyright
+---------------------------------------------------------------------------*/
+
+.l-copyright {
+    padding: 0 40px 40px 40px;
+    @include mixin.media-sp() {
+        padding: 0 20px 20px 20px;
+    }
+}
+
+.l-copyright__text {
+    @include mixin.font-style($s: fs-12, $lh: none);
+    color: #A8C1B8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 92px;
+    width: 100%;
+    background: linear-gradient(71.75deg, rgba(125, 212, 110, 0.08) 24.8%, rgba(240, 213, 68, 0.08) 75.2%);
+    @include mixin.media-sp() {
+        height: 64px;
+    }
+}

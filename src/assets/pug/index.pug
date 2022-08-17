@@ -1,4 +1,5 @@
 :php get_header();
+include foundation/_var.pug
 include component/_button.pug
 include component/_section.pug
 
@@ -125,7 +126,7 @@ article( class="l-main top" )
         | 基本プラン
       div( class="plan__inner" )
         p( class="plan__price" )
-          | 300,000円
+          | #{ basicPlanPrice }
         p( class="plan__supplement" )
           | 写真30枚・素材加工 + ショート動画（50秒程度）
         p( class="plan__priceDescription" )
@@ -165,7 +166,7 @@ article( class="l-main top" )
             p( class="flow__description" )
               | ヒアリングを基に、モデル・撮影場所の選定と撮影プランを作成します
       picture( class="flow__bottom" )
-        source( srcset!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-green-sp.svg", media="(max-width: 1024px)")
+        source( srcset!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-green-sp.svg", media=breakPoinstSP )
         img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-green.svg", class="flow__bottomLine", alt="" )
       ul( class="flow__list" )
         li( class="flow__item flow__item--afterLine" )
@@ -190,7 +191,7 @@ article( class="l-main top" )
             p( class="flow__description" )
               | 初稿の写真から表紙に使用する写真をご選定いただき、商品名やコピーの文字入れます
       picture( class="flow__bottom" )
-        source( srcset!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-orange-sp.svg", media="(max-width: 1024px)")
+        source( srcset!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-orange-sp.svg", media=breakPoinstSP )
         img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-orange.svg", class="flow__bottomLine", alt="" )
       ul( class="flow__list" )
         li( class="flow__item" )

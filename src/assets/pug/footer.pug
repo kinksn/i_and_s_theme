@@ -1,20 +1,39 @@
-|
-| <?php include("timestamp.php"); ?>
+:php include("timestamp.php");
+include component/_section.pug
 
 
-footer( class="l-footer" )
-  //- | フッター
 
-|
-| <?php wp_footer(); ?>
+
+
+footer( class="l-footer", id="footer" )
+  +section('Contact', 'お問合せ・お見積もり')( class="l-footer__container" )
+    div( class="l-footer__form" )
+      :php echo do_shortcode('[contact-form-7 id="21" title="コンタクトフォーム 1"]');
+div( class="l-copyright" )
+  small( class="l-copyright__text" )
+    | &copy; I＆S Production 
+
+
+
+
+
+:php wp_footer();
+
+
 
 
 script( src!="<?php echo get_template_directory_uri(); ?>/dist/assets/js/bundle.js<?php echo $timestamp ?>", defer)
+
+
+
 
 |
 |
 .
 </body>
+
+
+
 
 |
 |
