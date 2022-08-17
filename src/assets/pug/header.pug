@@ -53,9 +53,8 @@ doctype
     <body>
   //-
     Google Tag Manager (noscript)
-  .
-    <?php $isTopPage = is_front_page() ? 'l-header--top' : '' ?>
-  header( class!="l-header <?php echo $isTopPage ?>" )
+  :php $isTopPage = is_front_page() ? 'l-header--top' : '';
+  header( class!="l-header <?php echo $isTopPage ?>", id!="<?php if ($isTopPage) { echo 'js-header--top'; } else { echo 'js-header'; } ?>" )
     nav( class="l-header__inner" )
       div( class="l-header__logoMenuContainer" )
         a( class="l-header__logo", href="/" )

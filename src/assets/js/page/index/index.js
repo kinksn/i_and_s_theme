@@ -1,4 +1,5 @@
 import tab from './tab';
+import headerSticky from './headerSticky';
 
 function initIndex() {
 
@@ -13,6 +14,11 @@ function initIndex() {
         const tabContent = document.querySelectorAll("#js-tab .aboutUs__tabContent");
         tab( tabItem, tabContent );
     }
+
+    // header sticky
+    const headerStickyFlag = document.querySelector('#js-header--top');
+    if ( headerStickyFlag ) headerSticky( headerStickyFlag );
+   
     
 }
 
