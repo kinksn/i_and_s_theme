@@ -3,6 +3,8 @@
     Template Name: About Us
     */
 include layout/_subHeader.pug
+include component/_button.pug
+include component/_section.pug
 
 
 
@@ -24,36 +26,57 @@ nav( class="l-breadcrumb" )
 
 //- section
 article( class="l-main", id="aboutUs" )
-    section( class="aboutUs" )
-        div( class="aboutUs__container" )
-            div( class="aboutUs__personWrap" )
-                div( class="aboutUs__personThumbWrap" )
-                    div( class="aboutUs__personThumbImage" )
-                div( class="aboutUs__personTextWrap" )
-                    small( class="aboutUs__personPosition" )
-                        | カメラマン - 写真担当 / プロジェクトマネージャー
-                    p( class="aboutUs__personName" )
+
+    section( class="introduction" )
+        div( class="introduction__container" )
+            div( class="introduction__personWrap" )
+                div( class="introduction__personThumbWrap" )
+                    img( class="introduction__personThumbImage", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/aboutUs/photo-yoshida.png", alt="" )
+                div( class="introduction__personTextWrap" )
+                    small( class="introduction__personPosition" )
+                        | カメラマン - 写真担当 / <br class="u-onlySP">プロジェクトマネージャー
+                    p( class="introduction__personName" )
                         | 吉田 祥平
-            p( class="aboutUs__description" )
+            p( class="introduction__description" )
                 | ニューヨーク州立大学プラッツバーグ校で学士、ウェスタンミシガン大学で人類学の修士号を取得。卒業後は内閣府心理関係有識者ミーティング、環境省Ｇ７海洋問題国際会議などで通訳者として活躍。<br class="u-onlyPC">その後株式会社パソナにて、横浜市が運営する横浜ワールドビジネスサポートセンターのマネージャー、東京都が実施する産業交流展における海外企業ブースの運営責任者などを通して活躍。<br class="u-onlyPC">同社を退社後、月間1億3000万PVを超すLifehackerやGizmodeといったメディアへの記事提供と、同社が運営するクラウドファンディングサイト「machi-ya」にてクラウドファンディングの公式紹介ページの作成・それに伴う商品プロモーションイメージの撮影・編集を行う。その中でクラウドファンディングに特化したプロダクションの設立の必要性を感じ、山崎いおんとI&S撮影スタジオを設立。
-        div( class="aboutUs__container" )
-            div( class="aboutUs__personWrap" )
-                div( class="aboutUs__personThumbWrap" )
-                    div( class="aboutUs__personThumbImage" )
-                div( class="aboutUs__personTextWrap" )
-                    small( class="aboutUs__personPosition" )
+        div( class="introduction__container" )
+            div( class="introduction__personWrap" )
+                div( class="introduction__personThumbWrap" )
+                    img( class="introduction__personThumbImage", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/aboutUs/photo-yamazaki.png", alt="" )
+                div( class="introduction__personTextWrap" )
+                    small( class="introduction__personPosition" )
                         | カメラマン - 動画担当
-                    p( class="aboutUs__personName" )
+                    p( class="introduction__personName" )
                         | 山崎いおん
-            p( class="aboutUs__description" )
+            p( class="introduction__description" )
                 | カリフォルニア州立大学ロングビーチ校で学士、ジョージア州立大学で芸術学の修士号を取得。卒業後は大学での非常勤講師を経て東京の現代アートギャラリー、シュウゴアーツにてアシスタントを務める。<br class="u-onlyPC">同社を退社後吉田祥平とI&S撮影スタジオを設立。写真、動画の撮影編集を通し新しい商品の素晴らしさを分かりやすく紹介することに奮闘中。
-        div( class="aboutUs__sns" )
-            p( class="aboutUs__snsTitle" )
+        div( class="introduction__sns" )
+            p( class="introduction__snsTitle" )
                 | I&S Production’s SNS 
-            a( class="aboutUs__snsLink", href="#", target="_blank" )
-                img( class="aboutUs__snsIcon", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/instagram.png", alt="Instagram")
-                span( class="aboutUs__snsText" )
+            a( class="introduction__snsLink", href="#", target="_blank" )
+                img( class="introduction__snsIcon", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/instagram.png", alt="Instagram")
+                span( class="introduction__snsText" )
                     | Instagram
+
+    +section( '', 'クラファンに最適なイメージをご提供します')( class="l-section--bgGradientGtoO" )
+        div( class="aboutUs", id="js-tab" )
+            ul( class="aboutUs__tabButtonList" )
+                li( class="aboutUs__tabButtonItem is-active" )
+                    div( class="aboutUs__tabButtonInner" )
+                        img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/crowdfunding.svg", class="aboutUs__tabButtonIcon aboutUs__tabButtonIcon--crowdfunding", alt="" )
+                        h3( class="aboutUs__tabButtonText" )
+                            | クラウドファンディング<br>に特化している理由
+                li( class="aboutUs__tabButtonItem" )
+                    div( class="aboutUs__tabButtonInner" )
+                        img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/price.svg", class="aboutUs__tabButtonIcon aboutUs__tabButtonIcon--price", alt="" )
+                        h3( class="aboutUs__tabButtonText" )
+                            | 他社より安く<br>提供できる理由
+            div( class="aboutUs__tabContentContainer" )
+                div( class="aboutUs__tabContent aboutUs__tabContent--crowdfunding is-active" )
+                    | クラウドファンディングの講師も務める知識豊富なカメラマンが、クラファンで映える写真・動画コンテンツをワンストップで制作いたします。キャンペーンが終わった後もECサイトなどで使用できることを想定した、高いクオリティのイメージが作成可能です。
+                div( class="aboutUs__tabContent aboutUs__tabContent--price" )
+                    | I&Sではクラウドファンディングの撮影に特化して制作フローを効率化しているため、簡単なイメージの聞き取りとプロダクト情報のご提示だけで、スピーディ且つ低予算でのコンテンツの制作が可能です。<br><br>
+        +button( '#', '撮影事例を見る' )( class="aboutUs__moreButton" )
 
 
 

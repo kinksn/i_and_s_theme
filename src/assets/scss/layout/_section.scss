@@ -1,0 +1,60 @@
+@use "../foundation/var";
+@use "../foundation/mixin";
+
+
+.l-section {
+    position: relative;
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    @include mixin.media-sp() {
+        padding: 40px 0 48px;
+    }
+
+    &--bgGradientGtoO {
+        background: var.$color-lg-green-to-orange-light;
+    }
+}
+
+.l-section__inner {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include mixin.media-sp() {
+        padding: 0 20px;
+    }
+}
+
+.l-section__textWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+    @include mixin.media-sp() {
+        margin-bottom: 36px;
+    }
+}
+
+.l-section__H2English {
+    @include mixin.font-style($s: fs-32, $w: bold);
+    background: linear-gradient(108.01deg, rgba(240, 194, 26, 0.4) -25.59%, rgba(48, 199, 140, 0.4) 96.36%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @include mixin.media-sp() {
+        @include mixin.font-style($s: fs-24, $w: bold);
+    }
+}
+
+.l-section__H2 {
+    @include mixin.font-style($s: fs-32, $w: bold);
+    @include mixin.media-sp() {
+        @include mixin.font-style($s: fs-24, $w: bold, $a: center);
+    }
+}
+
+.l-section__leadPragraph {
+    @include mixin.font-style($a: center);
+    margin-top: 16px;
+}

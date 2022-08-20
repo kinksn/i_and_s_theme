@@ -47,7 +47,6 @@ const spMenu = () => {
                 body.style.setProperty( 'top', 0 );
             }
         });
-        console.log('aaaaa');
     }
 }
 

@@ -1,11 +1,9 @@
 import { tab } from '../../common/utility';
-import headerSticky from './headerSticky';
 
-function initIndex() {
+function initAboutUs() {
 
-    // mv true or false
-    const mvFlag = document.querySelector('#mv');
-    if ( !mvFlag ) return
+    const pageFlug = document.querySelector('#aboutUs');
+    if (!pageFlug ) return
 
     // about us tab menu
     const tabFlag = document.querySelector('#js-tab');
@@ -15,11 +13,6 @@ function initIndex() {
         tab( tabItem, tabContent );
     }
 
-    // header sticky
-    const headerStickyFlag = document.querySelector('#js-header--top');
-    if ( headerStickyFlag ) headerSticky( headerStickyFlag );
-   
-    
 }
 
-export default initIndex;
+export default initAboutUs;

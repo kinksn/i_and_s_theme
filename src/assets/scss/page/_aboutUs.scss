@@ -2,7 +2,234 @@
 @use "../foundation/mixin";
 
 
-.aboutUs {
-    max-width: 800px;
-    margin: 0 auto;
+/*--------------------------------------------------------------------------
+  introduction
+---------------------------------------------------------------------------*/
+#aboutUs {
+
+    .introduction {
+        max-width: 800px;
+        margin: 0 auto;
+        display: grid;
+        gap: 40px;
+        padding: 0 0 80px 0;
+        @include mixin.media-sp() {
+            padding: 0 20px 60px;
+            margin-top: 28px;
+        }
+    }
+
+    .introduction__container {
+        display: grid;
+        gap: 16px;
+    }
+
+    .introduction__personWrap {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .introduction__personThumbWrap {
+        width: 68px;
+        height: 68px;
+        border-radius: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(45deg, rgba(125, 212, 110, 0.32) 0%, rgba(240, 213, 68, 0.32) 100%);
+        @include mixin.media-sp() {
+            min-width: 68px;
+            min-height: 68px;
+        }
+    }
+
+    .introduction__personThumbImage {
+        max-width: 88.23%;
+        border-radius: 100vh;
+    }
+
+    .introduction__personTextWrap {
+        display: grid;
+        gap: 4px;
+    }
+
+    .introduction__personPosition {
+        @include mixin.font-style($s: fs-12, $w: bold);
+    }
+
+    .introduction__personName {
+        @include mixin.font-style($s: fs-20, $w: bold, $lh: none);
+    }
+
+    .introduction__sns {
+        max-width: 360px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 28px 0;
+        border-radius: 4px;
+        border: 1px solid #CDDFC7;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .introduction__snsTitle {
+        @include mixin.font-style($w: bold, $lh: none);
+        background: linear-gradient(108.01deg, #F0C21A -25.59%, #30C78C 96.36%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .introduction__snsLink {
+        @include mixin.hover-transparent();
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        gap: 8px;
+    }
+
+    .introduction__snsIcon {
+        max-width: 20px;
+    }
+
+    .introduction__snsText {
+        @include mixin.font-style($s: fs-12, $w: bold);
+    }
+
+}
+
+
+
+
+/*--------------------------------------------------------------------------
+  tab
+---------------------------------------------------------------------------*/
+#aboutUs {
+
+    .aboutUs {
+        max-width: 800px;
+        margin: 0 auto;
+        @include mixin.media-sp() {
+            max-width: 100%;
+        }
+    }
+    
+    .aboutUs__tabButtonList {
+        max-width: 492px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        @include mixin.media-sp() {
+            max-width: 100%;
+        }
+    }
+    
+    .aboutUs__tabButtonItem {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: 8px;
+        width: 216px;
+        height: 216px;
+        background-color: var.$color-primary;
+        box-shadow: 0px 4px 4px rgba(4, 83, 41, 0.16);
+        border: 4px solid var.$color-primary;
+        transition: background-color .3s, border .3s;
+        &:hover {
+            background-color: var.$color-primary-dark;
+        }
+        @include mixin.media-sp() {
+            width: 43.73vw;
+            height: auto;
+            padding: 20px 0;
+        }
+    
+        &.is-active {
+            border: 4px solid  var.$color-primary-dark;
+            background-color: var.$color-primary;
+        }
+    }
+    
+    .aboutUs__tabButtonInner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .aboutUs__tabButtonIcon {
+        &--crowdfunding {
+            @include mixin.media-sp() {
+                width: 36px;
+            }
+        }
+        &--price {
+            @include mixin.media-sp() {
+                width: 28px;
+            }
+        }
+    }
+    
+    .aboutUs__tabButtonText {
+        @include mixin.font-style($s: fs-14, $w: bold, $a: center);
+        color: var.$color-white;
+        @include mixin.media-sp() {
+            @include mixin.font-style($s: fs-12, $w: bold, $a: center);
+        }
+    }
+    
+    .aboutUs__tabContentContainer {
+        margin-top: 36px;
+    }
+    
+    .aboutUs__tabContent {
+        position: relative;
+        padding: 32px 28px;
+        background-color: var.$color-primary-light;
+        display: none;
+        &:before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: -24px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 14px 24px 14px;
+            border-color: transparent transparent var.$color-primary-light transparent;
+        }
+        &.is-active {
+            display: block;
+        }
+    
+        &--crowdfunding {
+            &:before {
+                left: 248px;
+                @include mixin.media-sp() {
+                    left: 20.4%;
+                }
+            }
+        }
+    
+        &--price {
+            &:before {
+                right: 248px;
+                @include mixin.media-sp() {
+                    right: 20.4%;
+                }
+            }
+        }
+    }
+    
+    .aboutUs__moreButton {
+        margin-top: 60px;
+        @include mixin.media-sp() {
+            margin-top: 48px;
+        }
+    }
+
 }
