@@ -219,11 +219,11 @@ const watchFiles = done => {
 -----------------------------------------
 */
 
-// gulpタスク
+// default（comple all assets）
 exports.default = series( cleanFiles, sassCompile, jsCompile, imageMin, pugCompile, copyStaticJS, copyFiles );
 
-// watchタスク
+// watch
 exports.watch = series( pugCompile, sassCompile, jsCompile, parallel( watchFiles, browserSync ) );
 
-// zipタスク
-exports.zip = series( cleanFiles, sassCompile, jsCompile, imageMin, pugCompile, copyFiles, copyStaticJS, zipFiles );
+// release（zip）
+exports.release = series( cleanFiles, sassCompile, jsCompile, imageMin, pugCompile, copyFiles, copyStaticJS, zipFiles );

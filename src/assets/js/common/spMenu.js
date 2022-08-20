@@ -1,3 +1,8 @@
+import { isSP } from './utility';
+
+
+
+
 const spMenu = () => {
 
     const body = document.querySelector('body'),
@@ -26,6 +31,24 @@ const spMenu = () => {
         }
 
     });
+
+    if ( isSP() ) {
+        const cvButton = document.querySelector('#js-header-cv-button');
+        cvButton.addEventListener( 'click', function() {
+            spMenuButton.classList.remove( 'is-active' );
+            headerNav.classList.remove( 'is-active' );
+            body.classList.remove( 'is-fixed' );
+
+            if ( body.classList.contains( 'is-fixed' ) ) {
+                body.style.setProperty( 'top', `-${ scrollTop }px` );
+                scrollPosition = scrollTop;
+            } else {
+                window.scrollTo( 0, scrollPosition );
+                body.style.setProperty( 'top', 0 );
+            }
+        });
+        console.log('aaaaa');
+    }
 }
 
 export default spMenu;

@@ -12,8 +12,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=production npx gulp",
     "watch": "cross-env NODE_ENV=development npx gulp watch",
-    "zip": "cross-env NODE_ENV=production npx gulp zip",
-    "deltest": "cross-env NODE_ENV=development npx gulp deltest"
+    "release": "cross-env NODE_ENV=production npx gulp release"
   },
   "browserslist": [
     "last 2 Edge versions",
