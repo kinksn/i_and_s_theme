@@ -19,7 +19,7 @@ doctype
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     title.
-        <?php bloginfo('name'); ?> <?php wp_title('|'); ?> | I&S Production
+        <?php wp_title(''); ?> <?php !is_front_page() ? "|" : "" ?> I&S Production
     meta(name="description", content!="<?php echo get_description(); ?>")
     meta( property="og:type", content="website")
     meta( property="og:locale" content="ja_JP" )
@@ -70,7 +70,7 @@ doctype
           a( class="l-header__link", href="/about-us/" )
             | 私たちについて
         li( class="l-header__item" )
-          a( class="l-header__link", href="#" )
+          a( class="l-header__link", href="/plan/" )
             | 料金プラン
         li( class="l-header__item" )
           a( class="l-header__link l-header__link--button", href="#footer", id="js-header-cv-button" )

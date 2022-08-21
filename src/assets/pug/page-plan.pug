@@ -1,0 +1,130 @@
+:php
+    /*
+    Template Name: Plan
+    */
+
+include foundation/_var.pug
+include layout/_subHeader.pug
+include component/_section.pug
+
+
+
+:php get_header();
+
+
+
+//- common parts
++subHeader( 'Price', '料金プラン' )
+nav( class="l-breadcrumb" )
+    ul( class="l-breadcrumb__list" )
+        li( class="l-breadcrumb__item" )
+            a( class="l-breadcrumb__link", href="/" )
+                img( class="l-breadcrumb__homeIcon", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/home.svg", alt="" )
+                span( class="l-breadcrumb__text" )= 'ホーム'
+            img( class="l-breadcrumb__arrowIcon", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/arrow-right.svg", alt="" )
+        li( class="l-breadcrumb__item" )
+            span( class="l-breadcrumb__text" )= '料金プラン'
+
+//- section
+article( class="l-main", id="plan" )
+
+    +section( '', 'プラン一覧')( class="l-section--bgGradientGtoO plan" )
+        div( class="availableAreas" )
+            p( class="availableAreas__title" )
+                | 対応可能地域
+            div( class="availableAreas__container" )
+                p( class="availableAreas__description" )
+                    | 関東（東京・神奈川・埼玉・千葉・茨城・栃木）<br><span class="u-bold">※対面でなく撮影素材の郵送の場合は全国で対応可能</span>
+        div( class="plan__wrap" )
+            div( class="plan__container" )
+                h3( class="plan__h3" )
+                    | 基本プラン
+                div( class="plan__inner" )
+                    p( class="plan__price" )
+                        | #{ basicPlanPrice }
+                    p( class="plan__supplement" )
+                        | 写真30枚・素材加工 + ショート動画（50秒程度）
+                    p( class="plan__priceDescription" )
+                        | カバンや財布と言ったプロダクトのクラウドファンディングの標準的なセットプラン
+                    div( class="plan__areaContainer" )
+                        div( class="plan__areaWrap" )
+                            p( class="plan__areaDescription plan__areaDescription--alignLeft" )
+                                | 撮影場所代は20000円まで。モデル代は12000円まで負担可能。それ以上は追加料金をご請求。
+            div( class="plan__container" )
+                h3( class="plan__h3" )
+                    | 写真プラン
+                div( class="plan__inner" )
+                    p( class="plan__price" )
+                        | #{ pictrePlanPrice }
+                    p( class="plan__supplement" )
+                        | 写真30枚・素材加工
+                    p( class="plan__priceDescription" )
+                        | クラウドファンディングに必要な標準的な枚数を撮影されたい方にオススメ​
+                    div( class="plan__areaContainer" )
+                        div( class="plan__areaWrap" )
+                            p( class="plan__areaDescription plan__areaDescription--alignLeft" )
+                                | モデル代と、カフェなど屋内の場所を貸し切っての撮影の場合はスタジオ代が実費で発生いたします。
+
+    +section( 'Flow', 'ご依頼から納品までの流れ', 'サンプルの受け取りから最短で2週間の納品が可能です。')( class="flow" )
+        div( class="flow__container" )
+            ul( class="flow__list" )
+                li( class="flow__item flow__item--afterLine" )
+                    div( class="flow__itemInner" )
+                        span( class="flow__count" )= 1
+                        h3( class="flow__h3" )
+                            | お問い合わせ
+                        p( class="flow__description" )
+                            | 下記のお問合せフォームより、ご要望をお伺いします
+                li( class="flow__item flow__item--afterLine" )
+                    div( class="flow__itemInner" )
+                        span( class="flow__count" )= 2
+                        h3( class="flow__h3" )
+                            | ヒアリング
+                        p( class="flow__description" )
+                            | I&Sのスタッフが商品の強みや撮影イメージの聞き取りを行います
+                li( class="flow__item" )
+                    div( class="flow__itemInner" )
+                        span( class="flow__count" )= 3
+                        h3( class="flow__h3" )
+                            | 撮影プランの作成
+                        p( class="flow__description" )
+                            | ヒアリングを基に、モデル・撮影場所の選定と撮影プランを作成します
+            picture( class="flow__bottom" )
+                source( srcset!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-green-sp.svg", media=breakPoinstSP )
+                img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-green.svg", class="flow__bottomLine", alt="" )
+            ul( class="flow__list" )
+                li( class="flow__item flow__item--afterLine" )
+                    div( class="flow__itemInner" )
+                        span( class="flow__count" )= 4
+                        h3( class="flow__h3" )
+                            | 撮影
+                        p( class="flow__description" )
+                            | プランをもとに、商品の撮影をします<br>※1〜2日程
+                li( class="flow__item flow__item--afterLine" )
+                    div( class="flow__itemInner" )
+                        span( class="flow__count" )= 5
+                        h3( class="flow__h3" )
+                            | 編集・初稿作成
+                        p( class="flow__description" )
+                            | 撮影した素材を元に編集を行った写真・動画をご送付します<br>※通常10日間程
+                li( class="flow__item" )
+                    div( class="flow__itemInner" )
+                        span( class="flow__count" )= 6
+                        h3( class="flow__h3" )
+                            | ご確認・文字入れ
+                        p( class="flow__description" )
+                            | 初稿の写真から表紙に使用する写真をご選定いただき、商品名やコピーの文字入れます
+            picture( class="flow__bottom" )
+                source( srcset!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-orange-sp.svg", media=breakPoinstSP )
+                img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-orange.svg", class="flow__bottomLine", alt="" )
+            ul( class="flow__list" )
+                li( class="flow__item" )
+                    div( class="flow__itemInner" )
+                        span( class="flow__count flow__count--orange" )= 7
+                        h3( class="flow__h3 flow__h3--orange" )
+                            | 最終納品
+                        p( class="flow__description" )
+                            | コンテンツは使用制限も無いため、ECサイトへの出品等にもご利用可能です
+
+
+:php get_footer();

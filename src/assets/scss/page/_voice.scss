@@ -1,0 +1,114 @@
+@use "../foundation/var";
+@use "../foundation/mixin";
+
+
+/*--------------------------------------------------------------------------
+  voice
+---------------------------------------------------------------------------*/
+#voice {
+
+    &.voice {
+        display: grid;
+        gap: 80px;
+        margin: 80px 0;
+        @include mixin.media-sp() {
+            margin: 40px 0;
+            gap: 40px;
+        }
+    }
+
+    .voice__inner {
+        max-width: 1200px;
+        width: 100%;
+    }
+
+    .voiceHeader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .voiceHeader__container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 336px;
+        width: 100%;
+        @include mixin.media-sp() {
+            height: auto;
+            padding: 40px 0;
+        }
+    }
+
+    .voiceHeader__headerBg {
+        position: absolute;
+        width: 56.87%;
+        height: 100%;
+        background: linear-gradient(105.91deg, rgba(240, 194, 26, 0.12) -26.39%, rgba(48, 199, 140, 0.12) 99.36%);
+        top: 0;
+        right: 0;
+    }
+
+    .voiceHeader__inner {
+        @extend .voice__inner;
+        margin: 0 24px;
+    }
+
+    .voiceHeader__customerName {
+        @include mixin.font-style($w: bold);
+        color: var.$color-text-green;
+    }
+
+    .voiceHeader__title {
+        @include mixin.font-style($s: fs-40, $w: bold);
+        color: var.$color-primary;
+        @include mixin.media-sp() {
+            @include mixin.font-style($s: fs-24, $w: bold);
+        }
+    }
+
+    .voiceSection {
+        margin: 0 24px;
+    }
+
+    .voiceSection__inner {
+        @extend .voice__inner;
+        margin: 24px auto;
+        display: flex;
+        align-items: center;
+        @include mixin.media-sp() {
+            flex-direction: column;
+            margin: 0 auto;
+        }
+
+        &--imageLeft {
+            gap: 20px;
+        }
+    }
+
+    .voiceSection__image {
+        max-width: 420px;
+        border-radius: 8px;
+        @include mixin.media-sp() {
+            width: 100%;
+        }
+    }
+
+    .voiceSection__textContent {
+        display: grid;
+        gap: 24px;
+        @include mixin.media-sp() {
+            gap: 12px;
+        }
+    }
+
+    .voiceSection__h3 {
+
+    }
+
+}
+
+
+
+

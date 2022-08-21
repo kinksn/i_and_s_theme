@@ -1,0 +1,51 @@
+:php
+    /*
+    Template Name: Voice interstate design
+    */
+
+include foundation/_var.pug
+include layout/_subHeader.pug
+include component/_section.pug
+
+
+
+:php get_header();
+
+
+
+//- common parts
++subHeader( 'Voice', 'お客様の声' )
+nav( class="l-breadcrumb" )
+    ul( class="l-breadcrumb__list" )
+        li( class="l-breadcrumb__item" )
+            a( class="l-breadcrumb__link", href="/" )
+                img( class="l-breadcrumb__homeIcon", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/home.svg", alt="" )
+                span( class="l-breadcrumb__text" )= 'ホーム'
+            img( class="l-breadcrumb__arrowIcon", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/arrow-right.svg", alt="" )
+        li( class="l-breadcrumb__item" )
+            span( class="l-breadcrumb__text" )= 'お客様の声'
+
+//- section
+article( class="l-main voice", id="voice" )
+
+    header( class="voiceHeader" )
+        div( class="voiceHeader__container" )
+            div( class="voiceHeader__headerBg" )
+            div( class="voiceHeader__inner" )
+                p( class="voiceHeader__customerName" )
+                    | INTERSTATE DESIGN 様より
+                h1( class="voiceHeader__title" )
+                    | 文章だけで伝えられない部分を視覚化し<br class="u-onlyPC">「オンリーワン」の世界観を持つ写真や動画に<br class="u-onlyPC">仕上げられるチーム
+    
+    section( class="voiceSection" )
+        div( class="voiceSection__inner voiceSection__inner--imageLeft" )
+            img( class="voiceSection__image", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/voice/interstate-design/photo_wallet.jpeg", alt="プロダクトを使っている様子" )
+            div( class="voiceSection__textContent" )
+                h3( class="voiceSection__h3 u-bold" )
+                    | 今までBaksteen, Litt, Storio, Tenuis3,  Tenuis3 Leather TL と4つの製品撮影の依頼実績があります。 
+                p( class="voiceSection__description" )
+                    | 最初にお願いしたときは双方どういう風に撮るかなど色々相談しながらだったので正直その時点でどうなるかはまだわかりませんでした。しかしこちらの都合及び進行度を第一に考えて頂き、最後まで熱心にこちらの意向を反映させるという意思、それに巷のいい事だけ書いてある客寄せのためのキャッチフレーズとは違い本当の意味で我々客側の立場になって「一緒に作り上げていく」という姿勢を行動そのもので示して頂いたのでこちらとしてはそういうところも信頼、評価に繋がりリピート依頼させて頂いています。
+
+
+
+:php get_footer();
