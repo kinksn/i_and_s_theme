@@ -36,20 +36,6 @@ article( class="l-main", id="top" )
         | S<br>C<br>R<br>O<br>L<br>L
     div( id="js-headerStickyLine" )
 
-
-  //- .
-  //-   <?php
-  //-     $args = array('post_type' => 'works', 'posts_per_page' => 5);
-  //-     $the_query = new WP_Query($args); if($the_query->have_posts()):
-  //-   ?>
-  //-   <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
-  //-   <?php endwhile; ?>
-  //-   <?php echo get_the_title(); ?>
-  //-   <?php the_content(); ?>
-  //-   <?php else: ?>
-  //-   <?php endif; ?>
-
-
   //- about us
   +section( 'About us', 'クラファンに最適なイメージをご提供します')
     div( class="aboutUs", id="js-tab" )
@@ -97,26 +83,66 @@ article( class="l-main", id="top" )
   - var n = 0;
   +section( 'Works', '撮影事例', 'クラウドファンディングサイトmachi-yaで、当時最高額の支援額となる4400万円を売り上げた超薄型財布「Tenuis3」や、<br>OIOI（マルイ）がライフハッカー［日本版］編集部とタッグを組み製作したバックパック「Teleffice」などを担当。' )( class="works" )
     div( class="works__container" )
-      ul( class="works__list" )
-        - for ( var x = 0; x < 4; x++ )
-          li( class="works__item" )
-            a( class="works__link", href="#" )
-              div( class="works__thumbWrap" )
-                img( class="works__thumb", src="https://images.unsplash.com/photo-1657299170935-31e068229885?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80", alt="" )
-              div( class="works__textWrap" )
-                h3( class="works__h3" )
-                  | INTERSTATE DESIGN 様
-                p( class="works__description" )
-                  | 文章だけで伝えられない部分を視覚化し「オンリーワン」の世界観を持つ写真や動画に仕上げられるチーム
-                div( class="works__categories" )
-                  span( class="works__categoryTitle" )
-                    | カテゴリ：
-                  ul( class="works__categoryList" )
-                    li( class="works__categoryItem" )
-                      | 写真・動画撮影
-            a( class="works__voice", href="#" )
-              | お客様の声
-    +button( '#', 'もっと事例を見る' )( class="works__moreButton" )
+      div( class="works__cardContainer" )
+
+        :php
+          $args = array(
+            'post_type' => 'works',
+            'tax_query' => array(
+              array(
+                'taxonomy' => 'item_type', //タクソノミー名を指定
+                'field' => 'slug',   //'term_id'、'slug'などのフィールド名を指定
+                'terms' => 'pickup',  //タクソノミーの値を指定
+                'operator'  => 'IN'  //'AND'、'IN'、'NOT IN'の何れかを指定
+              )
+            ),
+            'showposts' => 4,
+            'paged' => get_query_var('paged')
+          );
+          $the_query = new WP_Query($args); if($the_query->have_posts()):
+        
+        :php
+          while ($the_query->have_posts()): $the_query->the_post();
+          $terms = get_the_terms($post->ID, 'item_type');
+          $voiceLink = get_field('voice');
+          $description =  get_the_excerpt();
+          $title = get_the_title();
+          $invisibleTerm = "pick up";
+          $postLink = get_the_permalink();
+
+        div( class="c-card" )
+          a( class="c-card__link", href!="<?php echo $postLink ?>" )
+            div( class="c-card__thumbWrap" )
+              img( class="c-card__thumb", src!="<?php echo catch_that_image(); ?>", alt="" )
+            div( class="c-card__textWrap" )
+              h3( class="c-card__h3" )
+                :php echo $title;
+              p( class="c-card__description" )
+                :php echo $description;
+              div( class="c-card__categories" )
+                span( class="c-card__categoryTitle" )
+                  | カテゴリ：
+                ul( class="c-card__categoryList" )
+                  :php foreach ( $terms as $term ):
+                  :php if( $term->parent ):
+                  :php if ( $term->name == $invisibleTerm ):
+                  :php '';
+                  :php else:
+                  li( class="c-card__categoryItem" )
+                    :php echo $term->name;
+                  :php endif;
+                  :php endif;
+                  :php endforeach;
+          :php if ($voiceLink):
+          a( class="c-card__voice", href!="<?php echo $voiceLink; ?>" )
+            | お客様の声
+          :php endif;
+          
+        :php endwhile;
+        :php wp_reset_postdata();
+        :php else:
+        :php endif;
+    +button( '/works/', 'もっと事例を見る' )( class="c-card__moreButton" )
 
 
   //- plan

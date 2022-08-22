@@ -532,10 +532,11 @@
         justify-content: center;
     }
 
-    .works__list {
+    .works__cardContainer {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        -webkit-box-align: start;
         max-width: 920px;
         gap: 80px;
         @include mixin.media-pc() {
@@ -552,87 +553,6 @@
         }
     }
 
-    .works__item {
-        position: relative;
-        top: 0;
-        max-width: 420px;
-        background-color: var.$color-white;
-        border-radius: 8px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
-        @include mixin.media-pc() {
-            &:nth-child(even) {
-                top: 100px;
-            }
-        }
-    }
-
-    .works__link {
-        &:hover {
-            .works__thumb {
-                transform: scale(1.4);
-            }
-        }
-    }
-
-    .works__thumbWrap {
-        height: 236px;
-        overflow: hidden;
-    }
-
-    .works__thumb {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transform: scale(1);
-        transition: transform .6s;
-    }
-
-    .works__textWrap {
-        margin: 28px 20px;
-        display: grid;
-        gap: 12px;
-    }
-
-    .works__h3 {
-        @include mixin.font-style($w: bold);
-        color: var.$color-text-base;
-    }
-
-    .works__categories {
-        @include mixin.font-style($s: fs-12, $w: bold);
-        color: var.$color-text-green-light;
-        display: flex;
-    }
-
-    .works__categoryList {
-        display: flex;
-    }
-
-    .works__voice {
-        @include mixin.font-style($w: bold, $lh: none);
-        @include mixin.hover-transparent();
-        color: var.$color-primary;
-        background: linear-gradient(105.13deg, #F3F3D6 1.9%, #D6F4E8 100%);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px 0;
-        width: 90.47%;
-        margin-top: 12px;
-        margin-bottom: 20px;
-    }
-
-    .works__moreButton {
-        margin-top: 80px;
-        @include mixin.media-sp() {
-            margin-top: 48px;
-        }
-    }
 
 }
 
