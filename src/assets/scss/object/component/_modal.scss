@@ -1,0 +1,100 @@
+@use "../../foundation/var";
+@use "../../foundation/mixin";
+
+
+.c-modal {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    z-index: 100;
+    transition: opacity .3s, visibility .3s;
+
+    &.is-open {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.c-modal__inner {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.c-modal__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(22, 29, 29, 0.24);
+    backdrop-filter: blur(8px);
+}
+
+.c-modal__container {
+    position: relative;
+    z-index: 1;
+    width: 79.36vw;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    @include mixin.media-sp() {
+        width: 85.5vw;
+    }
+}
+
+.c-modal__header {
+    padding: 28px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 16px 16px 0 0;
+    background-color: #F5FCF3;
+    @include mixin.media-sp() {
+        padding: 16px;
+    }
+}
+
+.c-modal__close {
+    @include mixin.hover-transparent();
+    cursor: pointer;
+    @include mixin.media-sp() {
+        width: 24px;
+    }
+}
+
+.c-modal__h3 {
+    @include mixin.font-style($w: bold);
+    @include mixin.media-sp() {
+        @include mixin.font-style($s: fs-14, $w: bold);
+    }
+}
+
+.c-modal__content {
+    padding: 24px 24px 0;
+    border-radius: 0 0 16px 16px;
+    height: 90vh;
+    background-color: var.$color-white;
+    overflow-y: scroll;
+    @include mixin.media-sp() {
+        padding: 16px;
+        height: auto;
+        max-height: 84vh;
+    }
+
+    img {
+        width: 100%;
+        margin-bottom: 24px;
+        border-radius: 4px;
+        display: block;
+        @include mixin.media-sp() {
+            margin-bottom: 16px;
+        }
+    }
+}

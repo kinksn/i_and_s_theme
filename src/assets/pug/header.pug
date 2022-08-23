@@ -1,3 +1,8 @@
+include foundation/_var.pug
+
+
+
+
 doctype
 |
 |
@@ -58,7 +63,7 @@ doctype
     nav( class="l-header__inner" )
       div( class="l-header__logoMenuContainer" )
         a( class="l-header__logo", href="/" )
-          img( class="l-header__logoImage", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/logo.svg", alt="I&S Productionのロゴ画像" )
+          img( class="l-header__logoImage", src!= assetsPath + 'img/common/logo.svg', alt="I&S Productionのロゴ画像" )
         div( class="l-header__spMenuButton", id="js-spMenuButton" )
           div( class="l-header__spMenuBorder l-header__spMenuBorder--top" )
           div( class="l-header__spMenuBorder l-header__spMenuBorder--bottom" )

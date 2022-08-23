@@ -1,4 +1,5 @@
 :php include("timestamp.php");
+include foundation/_var.pug
 include component/_section.pug
 
 
@@ -23,7 +24,7 @@ div( class="l-copyright" )
 
 
 
-script( src!="<?php echo get_template_directory_uri(); ?>/dist/assets/js/bundle.js<?php echo $timestamp ?>", defer)
+script( src!= assetsPath + 'js/bundle.js<?php echo $timestamp ?>', defer)
 
 
 

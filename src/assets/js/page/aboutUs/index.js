@@ -1,4 +1,4 @@
-import { tab } from '../../common/utility';
+import tab from '../../common/tab';
 
 function initAboutUs() {
 

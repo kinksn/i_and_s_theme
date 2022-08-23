@@ -1,8 +1,11 @@
 import spMenu from './spMenu';
+import modal from './modal';
 import SmoothScroll from 'smooth-scroll';
 
 function initCommon() {
     spMenu(); // sp humburger menu
+
+    modal();
 
     // smooth scroll
     let options = { 

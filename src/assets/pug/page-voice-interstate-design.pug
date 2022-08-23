@@ -19,9 +19,9 @@ nav( class="l-breadcrumb" )
     ul( class="l-breadcrumb__list" )
         li( class="l-breadcrumb__item" )
             a( class="l-breadcrumb__link", href="/" )
-                img( class="l-breadcrumb__homeIcon", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/home.svg", alt="" )
+                img( class="l-breadcrumb__homeIcon", src!= assetsPath + 'img/common/icons/home.svg', alt="" )
                 span( class="l-breadcrumb__text" )= 'ホーム'
-            img( class="l-breadcrumb__arrowIcon", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/arrow-right.svg", alt="" )
+            img( class="l-breadcrumb__arrowIcon", src!= assetsPath + 'img/common/icons/arrow-right.svg', alt="" )
         li( class="l-breadcrumb__item" )
             span( class="l-breadcrumb__text" )= 'お客様の声'
 
@@ -39,7 +39,7 @@ article( class="l-main voice", id="voice" )
     
     section( class="voiceSection" )
         div( class="voiceSection__inner voiceSection__inner--imageLeft" )
-            img( class="voiceSection__image", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/voice/interstate-design/photo_wallet.jpeg", alt="プロダクトを使っている様子" )
+            img( class="voiceSection__image", src!= assetsPath + 'img/voice/interstate-design/photo_wallet.jpeg', alt="プロダクトを使っている様子" )
             div( class="voiceSection__textContent" )
                 h3( class="voiceSection__h3 u-bold" )
                     | 今までBaksteen, Litt, Storio, Tenuis3,  Tenuis3 Leather TL と4つの製品撮影の依頼実績があります。 

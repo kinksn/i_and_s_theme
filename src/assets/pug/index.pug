@@ -12,7 +12,7 @@ article( class="l-main", id="top" )
   section( class="mv" id="mv" )
     div( class="mv__inner" )
       div( class="mv__container" )
-        img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/ornaments/dots-green.svg", class="mv__ornament mv__ornament--green", alt="" )
+        img( src!= assetsPath + 'img/common/ornaments/dots-green.svg', class="mv__ornament mv__ornament--green", alt="" )
         div( class="mv__leftContainer" )
           div( class="mv__liquidShape" )
           div( class="mv__liquidShape mv__liquidShape--reverse" )
@@ -24,13 +24,13 @@ article( class="l-main", id="top" )
         div( class="mv__rightContainer" )
           div( class="mv__movieWrap" )
             div( class="mv__movie" )
-              video( poster!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/poster.jpeg", loop, muted, autoplay, playsinline )
-                source( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/mv.mp4", type="video/mp4" )
+              video( poster!= assetsPath + 'img/index/poster.jpeg', loop, muted, autoplay, playsinline )
+                source( src!= assetsPath + 'img/index/mv.mp4', type="video/mp4" )
             a( href="#", class="mv__movieLink", target="_blank" )
               span( class="mv__movieLinkText" )
                 | フルバージョンの動画を見る
-                img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/external.svg", class="mv__movieLinkImage", alt="" )
-        img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/ornaments/dots-orange.svg", class="mv__ornament mv__ornament--orange", alt="" )
+                img( src!= assetsPath + 'img/common/icons/external.svg', class="mv__movieLinkImage", alt="" )
+        img( src!= assetsPath + 'img/common/ornaments/dots-orange.svg', class="mv__ornament mv__ornament--orange", alt="" )
     div( class="mv__scrollLine" )
       span( class="mv__scrollText" )
         | S<br>C<br>R<br>O<br>L<br>L
@@ -42,12 +42,12 @@ article( class="l-main", id="top" )
       ul( class="aboutUs__tabButtonList" )
         li( class="aboutUs__tabButtonItem is-active" )
           div( class="aboutUs__tabButtonInner" )
-            img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/crowdfunding.svg", class="aboutUs__tabButtonIcon aboutUs__tabButtonIcon--crowdfunding", alt="" )
+            img( src!= assetsPath + 'img/common/icons/crowdfunding.svg', class="aboutUs__tabButtonIcon aboutUs__tabButtonIcon--crowdfunding", alt="" )
             h3( class="aboutUs__tabButtonText" )
               | クラウドファンディング<br>に特化している理由
         li( class="aboutUs__tabButtonItem" )
           div( class="aboutUs__tabButtonInner" )
-            img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/price.svg", class="aboutUs__tabButtonIcon aboutUs__tabButtonIcon--price", alt="" )
+            img( src!= assetsPath + 'img/common/icons/price.svg', class="aboutUs__tabButtonIcon aboutUs__tabButtonIcon--price", alt="" )
             h3( class="aboutUs__tabButtonText" )
               | 他社より安く<br>提供できる理由
       div( class="aboutUs__tabContentContainer" )
@@ -64,7 +64,7 @@ article( class="l-main", id="top" )
       div( class="stregth__inner" )
         div( class="strength__textBox" )
           h3( class="strength__h3" )
-            img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/pen.svg", class="strength__h3Icon", alt="" )
+            img( src!= assetsPath + 'img/common/icons/pen.svg', class="strength__h3Icon", alt="" )
             span( class="strength__h3Text" )
               | ライティングの相談
           p( class="strength__description" )
@@ -72,7 +72,7 @@ article( class="l-main", id="top" )
         div( class="strength__hr" )
         div( class="strength__textBox" )
           h3( class="strength__h3" )
-            img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/moviePicture.svg", class="strength__h3Icon", alt="" )
+            img( src!= assetsPath + 'img/common/icons/moviePicture.svg', class="strength__h3Icon", alt="" )
             span( class="strength__h3Text" )
               | 幅広いジャンルの写真・動画制作
           p( class="strength__description" )
@@ -109,9 +109,10 @@ article( class="l-main", id="top" )
           $title = get_the_title();
           $invisibleTerm = "pick up";
           $postLink = get_the_permalink();
+          $postID = get_the_ID();
 
         div( class="c-card" )
-          a( class="c-card__link", href!="<?php echo $postLink ?>" )
+          div( class="c-card__link js-c-card__link", data-modal-open!= "modal-" + "<?php echo $postID; ?>" )
             div( class="c-card__thumbWrap" )
               img( class="c-card__thumb", src!="<?php echo catch_that_image(); ?>", alt="" )
             div( class="c-card__textWrap" )
@@ -137,7 +138,17 @@ article( class="l-main", id="top" )
           a( class="c-card__voice", href!="<?php echo $voiceLink; ?>" )
             | お客様の声
           :php endif;
-          
+          div( class="c-modal js-c-modal", data-modal!= "modal-" + "<?php echo $postID; ?>" )
+            div( class="c-modal__inner" )
+              div( class="c-modal__bg js-c-modal__bg" )
+              div( class="c-modal__container" )
+                div( class="c-modal__header" )
+                  h3( class="c-modal__h3" )
+                    :php echo $title;
+                  img( class="c-modal__close js-c-modal__close", src!= assetsPath + "img/common/icons/close.svg" )
+                div( class="c-modal__content" )
+                  :php the_content();
+
         :php endwhile;
         :php wp_reset_postdata();
         :php else:
@@ -192,8 +203,8 @@ article( class="l-main", id="top" )
             p( class="flow__description" )
               | ヒアリングを基に、モデル・撮影場所の選定と撮影プランを作成します
       picture( class="flow__bottom" )
-        source( srcset!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-green-sp.svg", media=breakPoinstSP )
-        img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-green.svg", class="flow__bottomLine", alt="" )
+        source( srcset!= assetsPath + 'img/index/ornaments/flow_bottom-green-sp.svg', media=breakPoinstSP )
+        img( src!= assetsPath + 'img/index/ornaments/flow_bottom-green.svg', class="flow__bottomLine", alt="" )
       ul( class="flow__list" )
         li( class="flow__item flow__item--afterLine" )
           div( class="flow__itemInner" )
@@ -217,8 +228,8 @@ article( class="l-main", id="top" )
             p( class="flow__description" )
               | 初稿の写真から表紙に使用する写真をご選定いただき、商品名やコピーの文字入れます
       picture( class="flow__bottom" )
-        source( srcset!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-orange-sp.svg", media=breakPoinstSP )
-        img( src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/index/ornaments/flow_bottom-orange.svg", class="flow__bottomLine", alt="" )
+        source( srcset!= assetsPath + 'img/index/ornaments/flow_bottom-orange-sp.svg', media=breakPoinstSP )
+        img( src!= assetsPath + 'img/index/ornaments/flow_bottom-orange.svg', class="flow__bottomLine", alt="" )
       ul( class="flow__list" )
         li( class="flow__item" )
           div( class="flow__itemInner" )
