@@ -553,6 +553,15 @@
         }
     }
 
+    .works__card {
+        max-width: 420px;
+        @include mixin.media-pc() {
+            &:nth-child(even) {
+                top: 100px;
+            }
+        }
+    }
+
 
 }
 

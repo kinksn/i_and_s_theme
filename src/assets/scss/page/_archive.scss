@@ -1,0 +1,26 @@
+@use "../foundation/var";
+@use "../foundation/mixin";
+
+
+/*--------------------------------------------------------------------------
+ archive
+---------------------------------------------------------------------------*/
+#archive {
+
+    .archive__cardContainer {
+        display: flex;
+        width: 100%;
+        gap: 30px;
+        @include mixin.media-sp() {
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+
+    .archive__card {
+        max-width: 380px;
+    }
+
+}

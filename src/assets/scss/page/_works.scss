@@ -1,0 +1,30 @@
+@use "../foundation/var";
+@use "../foundation/mixin";
+
+
+/*--------------------------------------------------------------------------
+ works
+---------------------------------------------------------------------------*/
+#works {
+
+    .works__cardContainer {
+        display: flex;
+        width: 100%;
+        gap: 30px;
+        @include mixin.media-sp() {
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+
+    .works__card {
+        max-width: 380px;
+    }
+
+    .works__moreButton {
+        margin-top: 60px;
+    }
+
+}

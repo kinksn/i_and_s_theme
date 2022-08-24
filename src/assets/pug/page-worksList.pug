@@ -1,0 +1,187 @@
+:php
+    /*
+    Template Name: Works List
+    */
+include foundation/_var.pug
+include layout/_subHeader.pug
+include component/_button.pug
+include component/_section.pug
+
+
+
+:php get_header();
+
+
+
+//- common parts
++subHeader( 'Works', '撮影事例' )
+nav( class="l-breadcrumb" )
+    ul( class="l-breadcrumb__list" )
+        li( class="l-breadcrumb__item" )
+            a( class="l-breadcrumb__link", href="/" )
+                img( class="l-breadcrumb__homeIcon", src!= assetsPath + 'img/common/icons/home.svg', alt="" )
+                span( class="l-breadcrumb__text" )= 'ホーム'
+            img( class="l-breadcrumb__arrowIcon", src!= assetsPath + 'img/common/icons/arrow-right.svg', alt="" )
+        li( class="l-breadcrumb__item" )
+            span( class="l-breadcrumb__text" )= '撮影事例'
+
+//- section
+article( class="l-main works", id="works" )
+
+    +section( '', 'クラウドファンディング')
+        div( class="works__cardContainer" )
+            :php
+                $args = array(
+                        'post_type' => 'works',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'item_type',
+                                'field' => 'slug',
+                                'terms' => 'other',
+                                'operator' => 'NOT IN',
+                            )
+                        ),
+                        'showposts' => 3,
+                        'paged' => get_query_var('paged')
+                );
+                $the_query = new WP_Query($args); if($the_query->have_posts()):
+
+            :php
+                while ($the_query->have_posts()): $the_query->the_post();
+                $terms = get_the_terms($post->ID, 'item_type');
+                $voiceLink = get_field('voice');
+                $description =  get_the_excerpt();
+                $title = get_the_title();
+                $invisibleTerm = "pick up";
+                $postID = get_the_ID();
+                $image = get_the_post_thumbnail_url( $page->ID );
+            
+            div( class="c-card works__card" )
+                div( class="c-card__link js-c-card__link", data-modal-open!= "modal-" + "<?php echo $postID; ?>" )
+                    div( class="c-card__thumbWrap" )
+                        :php if ( $image ):
+                        img( class="c-card__thumb", src!="<?php echo $image; ?>", alt!="<?php echo $title; ?>" )
+                        :php else:
+                        img( class="c-card__thumb", src!="<?php echo catch_that_image(); ?>", alt!="<?php echo $title; ?>" )
+                        :php endif;
+                    div( class="c-card__textWrap" )
+                        h3( class="c-card__h3" )
+                            :php echo $title;
+                        p( class="c-card__description" )
+                            :php echo $description;
+                        div( class="c-card__categories" )
+                            span( class="c-card__categoryTitle" )
+                                    | カテゴリ：
+                            ul( class="c-card__categoryList" )
+                                :php foreach ( $terms as $term ):
+                                :php if( $term->parent ):
+                                :php if ( $term->name == $invisibleTerm ):
+                                :php '';
+                                :php else:
+                                li( class="c-card__categoryItem" )
+                                    :php echo $term->name;
+                                :php endif;
+                                :php endif;
+                                :php endforeach;
+                :php if ($voiceLink):
+                a( class="c-card__voice", href!="<?php echo $voiceLink; ?>" )
+                    | お客様の声
+                :php endif;
+                div( class="c-modal js-c-modal", data-modal!= "modal-" + "<?php echo $postID; ?>" )
+                    div( class="c-modal__inner" )
+                        div( class="c-modal__bg js-c-modal__bg" )
+                        div( class="c-modal__container" )
+                            div( class="c-modal__header" )
+                                h3( class="c-modal__h3" )
+                                    :php echo $title;
+                                img( class="c-modal__close js-c-modal__close", src!= assetsPath + "img/common/icons/close.svg" )
+                            div( class="c-modal__content" )
+                                :php the_content();
+            
+            :php endwhile;
+            :php else:
+            :php endif;
+            :php wp_reset_postdata();
+        +button( '#', 'もっとみる' )( class="works__moreButton" )
+
+
+    +section( '', 'その他')
+        div( class="works__cardContainer" )
+            :php
+                $args = array(
+                        'post_type' => 'works',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'item_type',
+                                'field' => 'slug',
+                                'terms' => 'other',
+                                'operator'  => 'IN'
+                            )
+                        ),
+                        'showposts' => 3,
+                        'paged' => get_query_var('paged')
+                );
+                $the_query = new WP_Query($args); if($the_query->have_posts()):
+
+            :php
+                while ($the_query->have_posts()): $the_query->the_post();
+                $terms = get_the_terms($post->ID, 'item_type');
+                $voiceLink = get_field('voice');
+                $description =  get_the_excerpt();
+                $title = get_the_title();
+                $invisibleTerm = "pick up";
+                $postID = get_the_ID();
+                $image = get_the_post_thumbnail_url( $page->ID );
+            
+            div( class="c-card works__card" )
+                div( class="c-card__link js-c-card__link", data-modal-open!= "modal-" + "<?php echo $postID; ?>" )
+                    div( class="c-card__thumbWrap" )
+                        :php if ( $image ):
+                        img( class="c-card__thumb", src!="<?php echo $image; ?>", alt!="<?php echo $title; ?>" )
+                        :php else:
+                        img( class="c-card__thumb", src!="<?php echo catch_that_image(); ?>", alt!="<?php echo $title; ?>" )
+                        :php endif;
+                    div( class="c-card__textWrap" )
+                        h3( class="c-card__h3" )
+                            :php echo $title;
+                        p( class="c-card__description" )
+                            :php echo $description;
+                        div( class="c-card__categories" )
+                            span( class="c-card__categoryTitle" )
+                                    | カテゴリ：
+                            ul( class="c-card__categoryList" )
+                                :php foreach ( $terms as $term ):
+                                :php if( $term->parent ):
+                                :php if ( $term->name == $invisibleTerm ):
+                                :php '';
+                                :php else:
+                                li( class="c-card__categoryItem" )
+                                    :php echo $term->name;
+                                :php endif;
+                                :php endif;
+                                :php endforeach;
+                :php if ($voiceLink):
+                a( class="c-card__voice", href!="<?php echo $voiceLink; ?>" )
+                    | お客様の声
+                :php endif;
+                div( class="c-modal js-c-modal", data-modal!= "modal-" + "<?php echo $postID; ?>" )
+                    div( class="c-modal__inner" )
+                        div( class="c-modal__bg js-c-modal__bg" )
+                        div( class="c-modal__container" )
+                            div( class="c-modal__header" )
+                                h3( class="c-modal__h3" )
+                                    :php echo $title;
+                                img( class="c-modal__close js-c-modal__close", src!= assetsPath + "img/common/icons/close.svg" )
+                            div( class="c-modal__content" )
+                                :php the_content();
+            
+            :php endwhile;
+            :php else:
+            :php endif;
+            :php wp_reset_postdata();
+        +button( '#', 'もっとみる' )( class="works__moreButton" )
+
+
+
+
+:php get_footer();
