@@ -1,0 +1,37 @@
+@use "../../foundation/var";
+@use "../../foundation/mixin";
+
+
+.c-pagination {
+    display: flex;
+    gap: 12px;
+
+    > .page-numbers {
+        @include mixin.font-style($w: bold);
+        @include mixin.hover-transparent();
+        color: var.$color-white;
+        font-family: var.$font-en;
+        width: 48px;
+        height: 48px;
+        border-radius: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(90deg, #2EC7C7 0%, #08E279 100%);
+        box-shadow: 0px 4px 24px rgba(74, 181, 161, 0.16);
+
+        &.current {
+            color: var.$color-text-base;
+            background: linear-gradient(90deg, rgba(46, 199, 199, 0.2) 0%, rgba(8, 226, 121, 0.2) 100%);
+            box-shadow: none;
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        &.prev,
+        &.next {
+            display: none;
+        }
+    }
+}

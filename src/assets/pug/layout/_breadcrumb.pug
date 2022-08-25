@@ -1,0 +1,30 @@
+nav( class="l-breadcrumb" )
+    ul( class="l-breadcrumb__list" )
+        li( class="l-breadcrumb__item" )
+            a( class="l-breadcrumb__link", href="/" )
+                img( class="l-breadcrumb__homeIcon", src!= assetsPath + 'img/common/icons/home.svg', alt="" )
+                span( class="l-breadcrumb__text" )= 'ホーム'
+            img( class="l-breadcrumb__arrowIcon", src!= assetsPath + 'img/common/icons/arrow-right.svg', alt="" )
+        :php if ( is_page() ):
+        li( class="l-breadcrumb__item" )
+            span( class="l-breadcrumb__text" )
+                :php echo get_the_title();
+        :php endif;
+        :php if ( is_tax() ):
+        :php if ( $termTitle === 'クラウドファンディング' ||  $termTitle === 'その他' ):
+        li( class="l-breadcrumb__item" )
+            a( class="l-breadcrumb__link", href="/archives/item_type/works" )
+                span( class="l-breadcrumb__text" )= '撮影事例'
+            img( class="l-breadcrumb__arrowIcon", src!= assetsPath + 'img/common/icons/arrow-right.svg', alt="" )
+        li( class="l-breadcrumb__item" )
+            span( class="l-breadcrumb__text" )
+                :php echo $termTitle;
+        :php else:
+        li( class="l-breadcrumb__item" )
+            span( class="l-breadcrumb__text" )
+                :php echo $termTitle;
+        :php endif;
+        :php endif;
+        //- li( class="l-breadcrumb__item" )
+        //-     span( class="l-breadcrumb__text" )
+        //-         :php echo $termTitle;

@@ -15,19 +15,19 @@ include component/_section.pug
 
 //- common parts
 +subHeader( 'About Us', '私たちについて' )
-nav( class="l-breadcrumb" )
-    ul( class="l-breadcrumb__list" )
-        li( class="l-breadcrumb__item" )
-            a( class="l-breadcrumb__link", href="/" )
-                img( class="l-breadcrumb__homeIcon", src!= assetsPath + 'img/common/icons/home.svg', alt="" )
-                span( class="l-breadcrumb__text" )= 'ホーム'
-            img( class="l-breadcrumb__arrowIcon", src!= assetsPath + 'img/common/icons/arrow-right.svg', alt="" )
-        li( class="l-breadcrumb__item" )
-            span( class="l-breadcrumb__text" )= '私たちについて'
+include layout/_breadcrumb.pug
 
 //- section
-article( class="l-main", id="aboutUs" )
-
+article( class="l-main aboutUs", id="aboutUs" )
+    div( class="swiper js-swiper" )
+        div( class="swiper-wrapper swiper__wrapper" )
+            :php $images = get_field('self-introduction-image');
+            :php foreach ( $images as $item ):
+            div( class="swiper-slide swiper__slide" )
+                img( class="swiper__image", src!="<?php echo $item ?>" )
+            :php endforeach;
+        div( class="swiper-button-next swiper__next" )
+        div( class="swiper-button-prev swiper__prev" )
     section( class="introduction" )
         div( class="introduction__container" )
             div( class="introduction__personWrap" )
@@ -77,9 +77,27 @@ article( class="l-main", id="aboutUs" )
                     | クラウドファンディングの講師も務める知識豊富なカメラマンが、クラファンで映える写真・動画コンテンツをワンストップで制作いたします。キャンペーンが終わった後もECサイトなどで使用できることを想定した、高いクオリティのイメージが作成可能です。
                 div( class="aboutUs__tabContent aboutUs__tabContent--price" )
                     | I&Sではクラウドファンディングの撮影に特化して制作フローを効率化しているため、簡単なイメージの聞き取りとプロダクト情報のご提示だけで、スピーディ且つ低予算でのコンテンツの制作が可能です。<br><br>
-        +button( '#', '撮影事例を見る' )( class="aboutUs__moreButton" )
+        +button( '/works-list/', '撮影事例を見る' )( class="aboutUs__moreButton" )
 
 
+//- swiper.js
+script( src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" )
+script.
+    var swiper = new Swiper(".js-swiper", {
+        spaceBetween: 30,
+        effect: "fade",
+        loop: true,
+        autoplay: {
+            delay: 5000
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+
+
+    
 
 
 :php get_footer();

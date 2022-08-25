@@ -15,15 +15,7 @@ include component/_section.pug
 
 //- common parts
 +subHeader( 'Voice', 'お客様の声' )
-nav( class="l-breadcrumb" )
-    ul( class="l-breadcrumb__list" )
-        li( class="l-breadcrumb__item" )
-            a( class="l-breadcrumb__link", href="/" )
-                img( class="l-breadcrumb__homeIcon", src!= assetsPath + 'img/common/icons/home.svg', alt="" )
-                span( class="l-breadcrumb__text" )= 'ホーム'
-            img( class="l-breadcrumb__arrowIcon", src!= assetsPath + 'img/common/icons/arrow-right.svg', alt="" )
-        li( class="l-breadcrumb__item" )
-            span( class="l-breadcrumb__text" )= 'お客様の声'
+include layout/_breadcrumb.pug
 
 //- section
 article( class="l-main voice", id="voice" )

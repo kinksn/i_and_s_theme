@@ -15,15 +15,7 @@ include component/_section.pug
 
 //- common parts
 +subHeader( 'Price', '料金プラン' )
-nav( class="l-breadcrumb" )
-    ul( class="l-breadcrumb__list" )
-        li( class="l-breadcrumb__item" )
-            a( class="l-breadcrumb__link", href="/" )
-                img( class="l-breadcrumb__homeIcon", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/home.svg", alt="" )
-                span( class="l-breadcrumb__text" )= 'ホーム'
-            img( class="l-breadcrumb__arrowIcon", src!="<?php bloginfo( 'stylesheet_directory' ); ?>/dist/assets/img/common/icons/arrow-right.svg", alt="" )
-        li( class="l-breadcrumb__item" )
-            span( class="l-breadcrumb__text" )= '料金プラン'
+include layout/_breadcrumb.pug
 
 //- section
 article( class="l-main", id="plan" )

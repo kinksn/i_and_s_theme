@@ -55,7 +55,7 @@ article( class="l-main", id="top" )
           | クラウドファンディングの講師も務める知識豊富なカメラマンが、クラファンで映える写真・動画コンテンツをワンストップで制作いたします。キャンペーンが終わった後もECサイトなどで使用できることを想定した、高いクオリティのイメージが作成可能です。
         div( class="aboutUs__tabContent aboutUs__tabContent--price" )
           | I&Sではクラウドファンディングの撮影に特化して制作フローを効率化しているため、簡単なイメージの聞き取りとプロダクト情報のご提示だけで、スピーディ且つ低予算でのコンテンツの制作が可能です。<br><br>
-    +button( '#', 'もっと詳しく知る' )( class="aboutUs__moreButton" )
+    +button( '/about-us', 'もっと詳しく知る' )( class="aboutUs__moreButton" )
 
 
   //- strength
@@ -158,7 +158,7 @@ article( class="l-main", id="top" )
         :php else:
         :php endif;
         :php wp_reset_postdata();
-    +button( '/works/', 'もっと事例を見る' )( class="c-card__moreButton" )
+    +button( '/archives/item_type/works', 'もっと事例を見る' )( class="c-card__moreButton" )
 
 
   //- plan
@@ -179,7 +179,7 @@ article( class="l-main", id="top" )
           div( class="plan__areaWrap" )
             p( class="plan__areaDescription" )
               | 関東（東京・神奈川・埼玉・千葉・茨城・栃木）<br><span class="u-bold">※対面でなく撮影素材の郵送の場合は全国で対応可能</span>
-    +button( '#', '他のプランも見る' )( class="plan__moreButton" )
+    +button( '/plan', '他のプランも見る' )( class="plan__moreButton" )
 
 
   //- flow
