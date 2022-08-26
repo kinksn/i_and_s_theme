@@ -280,6 +280,12 @@
         }
 
         &::after {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 24px;
+            background-repeat: no-repeat;
+            background-size: cover;
             @include mixin.font-style();
             color: var.$color-primary;
         }
@@ -287,6 +293,9 @@
 
     .swiper__next {
         right: -24px;
+        &::after {
+            background-image: url('#{var.$assetsPath}img/aboutUs/swiper/arrow-right.svg');
+        }
         @include mixin.media-sp() {
             right: 16px;
         }
@@ -294,6 +303,9 @@
 
     .swiper__prev {
         left: -24px;
+        &::after {
+            background-image: url('#{var.$assetsPath}img/aboutUs/swiper/arrow-left.svg');
+        }
         @include mixin.media-sp() {
             left: 16px;
         }
