@@ -5,6 +5,8 @@ include component/_button.pug
 include component/_section.pug
 
 
+
+
 :php
     $termTitle = single_term_title( '', false );
     if ( $termTitle === "写真撮影" || $termTitle === "動画撮影" ) {
@@ -17,16 +19,6 @@ include component/_section.pug
 //- common parts
 +subHeader( 'Works', '<?php echo $termTitle ?>' )
 include layout/_breadcrumb.pug
-//- nav( class="l-breadcrumb" )
-//-     ul( class="l-breadcrumb__list" )
-//-         li( class="l-breadcrumb__item" )
-//-             a( class="l-breadcrumb__link", href="/" )
-//-                 img( class="l-breadcrumb__homeIcon", src!= assetsPath + 'img/common/icons/home.svg', alt="" )
-//-                 span( class="l-breadcrumb__text" )= 'ホーム'
-//-             img( class="l-breadcrumb__arrowIcon", src!= assetsPath + 'img/common/icons/arrow-right.svg', alt="" )
-//-         li( class="l-breadcrumb__item" )
-//-             span( class="l-breadcrumb__text" )
-//-                 :php echo $termTitle;
 
 
 
@@ -81,7 +73,7 @@ article( class="l-main archive", id="archive" )
             :php
                 while ($the_query->have_posts()): $the_query->the_post();
                 $terms = get_the_terms($post->ID, 'item_type');
-                $voiceLink = get_field('voice');
+                $voiceID = get_field('voice-link');
                 $description =  get_the_excerpt();
                 $title = get_the_title();
                 $invisibleTerm = "pick up";
@@ -115,8 +107,8 @@ article( class="l-main archive", id="archive" )
                                 :php endif;
                                 :php endif;
                                 :php endforeach;
-                :php if ($voiceLink):
-                a( class="c-card__voice", href!="<?php echo $voiceLink; ?>" )
+                :php if ( $voiceID ):
+                a( class="c-card__voice", href!="<?php echo get_page_link( $voiceID ); ?>" )
                     | お客様の声
                 :php endif;
                 div( class="c-modal js-c-modal", data-modal!= "modal-" + "<?php echo $postID; ?>" )

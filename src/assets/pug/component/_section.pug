@@ -1,11 +1,12 @@
 mixin section( label, title, description )
   section( class!=attributes.class ? 'l-section ' + attributes.class : 'l-section' )
     div( class="l-section__inner" )
-        div( class="l-section__textWrap")
-            if label
-              small( class="l-section__H2English" )= label
-            h2( class="l-section__H2" )!= title
-            if description
-                p( class="l-section__leadPragraph" )!= description
+        if title
+          div( class="l-section__textWrap")
+              if label
+                small( class="l-section__H2English" )= label
+              h2( class="l-section__H2" )!= title
+              if description
+                  p( class="l-section__leadPragraph" )!= description
         block
 

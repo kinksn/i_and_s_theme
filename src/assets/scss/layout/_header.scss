@@ -136,6 +136,10 @@
         @include mixin.font-style($s: fs-20, $w: bold);
     }
 
+    &.is-current {
+        color: var.$color-primary;
+    }
+
     &--button {
         @include mixin.hover-button-btg();
         padding: 12px 24px;

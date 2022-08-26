@@ -112,3 +112,27 @@
 
 
 
+/*--------------------------------------------------------------------------
+ works
+---------------------------------------------------------------------------*/
+#voiceList {
+
+    .voiceList__cardContainer {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 30px;
+        @include mixin.media-sp() {
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+
+    .voiceList__card {
+        max-width: 380px;
+    }
+
+
+}

@@ -9,7 +9,9 @@ include component/_section.pug
 
 
 
+
 :php get_header();
+
 
 
 
@@ -19,15 +21,17 @@ include layout/_breadcrumb.pug
 
 //- section
 article( class="l-main aboutUs", id="aboutUs" )
-    div( class="swiper js-swiper" )
-        div( class="swiper-wrapper swiper__wrapper" )
-            :php $images = get_field('self-introduction-image');
-            :php foreach ( $images as $item ):
-            div( class="swiper-slide swiper__slide" )
-                img( class="swiper__image", src!="<?php echo $item ?>" )
-            :php endforeach;
+    div( class="aboutUs__swiperContainer")
+        div( class="swiper js-swiper" )
+            div( class="swiper-wrapper swiper__wrapper" )
+                :php $images = get_field('self-introduction-image');
+                :php foreach ( $images as $item ):
+                div( class="swiper-slide swiper__slide" )
+                    img( class="swiper__image", src!="<?php echo $item ?>" )
+                :php endforeach;
         div( class="swiper-button-next swiper__next" )
         div( class="swiper-button-prev swiper__prev" )
+        div( class="swiper__bg")
     section( class="introduction" )
         div( class="introduction__container" )
             div( class="introduction__personWrap" )
@@ -79,7 +83,6 @@ article( class="l-main aboutUs", id="aboutUs" )
                     | I&Sではクラウドファンディングの撮影に特化して制作フローを効率化しているため、簡単なイメージの聞き取りとプロダクト情報のご提示だけで、スピーディ且つ低予算でのコンテンツの制作が可能です。<br><br>
         +button( '/works-list/', '撮影事例を見る' )( class="aboutUs__moreButton" )
 
-
 //- swiper.js
 script( src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" )
 script.
@@ -97,7 +100,6 @@ script.
     });
 
 
-    
 
 
 :php get_footer();

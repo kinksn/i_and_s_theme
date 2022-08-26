@@ -41,11 +41,15 @@
     position: relative;
     z-index: 1;
     width: 79.36vw;
+    max-height: 96.4vh;
+    overflow-y: scroll;
     margin-top: 24px;
     display: flex;
     flex-direction: column;
+    border-radius: 0 0 16px 16px;
     @include mixin.media-sp() {
         width: 85.5vw;
+        max-height: 80vh;
     }
 }
 
@@ -77,24 +81,55 @@
 }
 
 .c-modal__content {
-    padding: 24px 24px 0;
+    padding: 24px;
     border-radius: 0 0 16px 16px;
-    height: 90vh;
+    
     background-color: var.$color-white;
-    overflow-y: scroll;
+    
     @include mixin.media-sp() {
         padding: 16px;
         height: auto;
-        max-height: 84vh;
+        
+    }
+
+    p {
+        &:first-child {
+            img {
+                margin-top: 0;
+            }
+        }
     }
 
     img {
         width: 100%;
-        margin-bottom: 24px;
+        margin-top: 24px;
         border-radius: 4px;
         display: block;
         @include mixin.media-sp() {
-            margin-bottom: 16px;
+            margin-top: 16px;
         }
+    }
+
+    .wp-block-embed {
+        margin: 24px 0 0 0;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .wp-block-embed__wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+        }
+        
     }
 }

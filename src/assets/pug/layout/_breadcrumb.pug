@@ -6,6 +6,17 @@ nav( class="l-breadcrumb" )
                 span( class="l-breadcrumb__text" )= 'ホーム'
             img( class="l-breadcrumb__arrowIcon", src!= assetsPath + 'img/common/icons/arrow-right.svg', alt="" )
         :php if ( is_page() ):
+        :php if ( $post->post_parent ):
+        :php
+            $parentID = $post->post_parent;
+            $parentTitle = get_post($parentID)->post_title;
+            $parentLink = get_permalink($parentID);
+        li( class="l-breadcrumb__item" )
+            a( class="l-breadcrumb__link", href!="<?php echo $parentLink ?>" )
+                span( class="l-breadcrumb__text" )
+                    :php echo $parentTitle;
+            img( class="l-breadcrumb__arrowIcon", src!= assetsPath + 'img/common/icons/arrow-right.svg', alt="" )
+        :php endif;
         li( class="l-breadcrumb__item" )
             span( class="l-breadcrumb__text" )
                 :php echo get_the_title();
@@ -25,6 +36,3 @@ nav( class="l-breadcrumb" )
                 :php echo $termTitle;
         :php endif;
         :php endif;
-        //- li( class="l-breadcrumb__item" )
-        //-     span( class="l-breadcrumb__text" )
-        //-         :php echo $termTitle;

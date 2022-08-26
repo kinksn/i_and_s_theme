@@ -1,0 +1,62 @@
+:php
+    /*
+    Template Name: Voice
+    */
+include foundation/_var.pug
+include layout/_subHeader.pug
+include component/_button.pug
+include component/_section.pug
+
+
+
+
+:php get_header();
+
+
+
+
+//- common parts
++subHeader( 'Voice', 'お客様の声' )
+include layout/_breadcrumb.pug
+
+//- section
+article( class="l-main voiceList", id="voiceList" )
+    
+    +section( '', '')
+        div( class="voiceList__cardContainer" )
+            :php
+                $parentId = get_the_ID();
+                $args = 'posts_per_page=-1&post_type=page&orderby=menu_order&order=asc&post_parent='.$parentId;
+                query_posts($args);
+            :php if (have_posts()):
+            :php while (have_posts()): the_post();
+
+            :php
+                $voiceSummary = get_field('summary');
+                $image = get_the_post_thumbnail_url( $page->ID );
+                $title = get_the_title();
+                $image = get_the_post_thumbnail_url( $page->ID );
+
+            div( class="c-card voiceList__card" )
+                a( class="c-card__link js-c-card__link", href!="<?php the_permalink(); ?>" )
+                    div( class="c-card__thumbWrap" )
+                        :php if ( $image ):
+                        img( class="c-card__thumb", src!="<?php echo $image; ?>", alt!="<?php echo $title; ?>" )
+                        :php else:
+                        img( class="c-card__thumb", src!="<?php echo catch_that_image(); ?>", alt!="<?php echo $title; ?>" )
+                        :php endif;
+                    div( class="c-card__textWrap" )
+                        h3( class="c-card__h3" )
+                            :php echo $title;
+                        p( class="c-card__description" )
+                            :php echo $voiceSummary;
+
+            :php endwhile;
+            :php endif;
+            :php wp_reset_postdata();
+
+
+
+
+
+:php get_footer();

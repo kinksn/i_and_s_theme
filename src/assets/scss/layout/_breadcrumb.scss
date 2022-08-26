@@ -12,6 +12,7 @@
 .l-breadcrumb__list {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .l-breadcrumb__item {

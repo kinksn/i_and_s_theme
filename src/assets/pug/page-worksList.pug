@@ -43,7 +43,7 @@ article( class="l-main works", id="works" )
             :php
                 while ($the_query->have_posts()): $the_query->the_post();
                 $terms = get_the_terms($post->ID, 'item_type');
-                $voiceLink = get_field('voice');
+                $voiceID = get_field('voice-link');
                 $description =  get_the_excerpt();
                 $title = get_the_title();
                 $invisibleTerm = "pick up";
@@ -77,8 +77,8 @@ article( class="l-main works", id="works" )
                                 :php endif;
                                 :php endif;
                                 :php endforeach;
-                :php if ($voiceLink):
-                a( class="c-card__voice", href!="<?php echo $voiceLink; ?>" )
+                :php if ( $voiceID ):
+                a( class="c-card__voice", href!="<?php echo get_page_link( $voiceID ); ?>" )
                     | お客様の声
                 :php endif;
                 div( class="c-modal js-c-modal", data-modal!= "modal-" + "<?php echo $postID; ?>" )
@@ -119,7 +119,7 @@ article( class="l-main works", id="works" )
             :php
                 while ($the_query->have_posts()): $the_query->the_post();
                 $terms = get_the_terms($post->ID, 'item_type');
-                $voiceLink = get_field('voice');
+                $voiceID = get_field('voice-link');
                 $description =  get_the_excerpt();
                 $title = get_the_title();
                 $invisibleTerm = "pick up";
@@ -153,8 +153,8 @@ article( class="l-main works", id="works" )
                                 :php endif;
                                 :php endif;
                                 :php endforeach;
-                :php if ($voiceLink):
-                a( class="c-card__voice", href!="<?php echo $voiceLink; ?>" )
+                :php if ( $voiceID ):
+                a( class="c-card__voice", href!="<?php echo get_page_link( $voiceID ); ?>" )
                     | お客様の声
                 :php endif;
                 div( class="c-modal js-c-modal", data-modal!= "modal-" + "<?php echo $postID; ?>" )
