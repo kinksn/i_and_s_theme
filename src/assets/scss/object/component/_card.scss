@@ -28,9 +28,13 @@
 }
 
 .c-card__thumbWrap {
-    height: 236px;
+    height: 280px;
     overflow: hidden;
+    @include mixin.media-sp() {
+        height: 59.46vw;
+    }
 }
+
 
 .c-card__thumb {
     width: 100%;

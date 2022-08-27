@@ -106,11 +106,14 @@
   }
 }
 
-@mixin hover-transparent() {
+@mixin hover-transparent($hoverOpacity: 0.4) {
   opacity: 1;
   transition: opacity .3s;
   &:hover {
-    opacity: 0.4;
+    opacity: $hoverOpacity;
+    @include media-sp() {
+      opacity: 1;
+    }
   }
 }
 

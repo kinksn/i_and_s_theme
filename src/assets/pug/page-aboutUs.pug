@@ -26,8 +26,10 @@ article( class="l-main aboutUs", id="aboutUs" )
             div( class="swiper-wrapper swiper__wrapper" )
                 :php $images = get_field('self-introduction-image');
                 :php foreach ( $images as $item ):
+                :php if ($item):
                 div( class="swiper-slide swiper__slide" )
                     img( class="swiper__image", src!="<?php echo $item ?>" )
+                :php endif;
                 :php endforeach;
         div( class="swiper-button-next swiper__next" )
         div( class="swiper-button-prev swiper__prev" )

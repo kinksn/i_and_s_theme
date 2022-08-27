@@ -81,39 +81,43 @@
 }
 
 .c-modal__content {
-    padding: 24px;
+    padding: 0 24px 24px 24px;
     border-radius: 0 0 16px 16px;
-    
     background-color: var.$color-white;
-    
     @include mixin.media-sp() {
-        padding: 16px;
+        padding: 0 16px 16px 16px;
         height: auto;
         
     }
 
-    p {
-        &:first-child {
-            img {
-                margin-top: 0;
-            }
-        }
-    }
-
     img {
         width: 100%;
-        margin-top: 24px;
         border-radius: 4px;
         display: block;
+        margin-top: 24px;
         @include mixin.media-sp() {
             margin-top: 16px;
         }
     }
 
+    .wp-block-image {
+        margin: 24px 0 0 0;
+        border-radius: 4px;
+        &:first-of-type {
+            margin: 0;
+        }
+
+        img {
+            @include mixin.media-sp() {
+                margin-top: 16px;
+            }
+        }
+    }
+
     .wp-block-embed {
         margin: 24px 0 0 0;
-        &:first-child {
-            margin-top: 0;
+        @include mixin.media-sp() {
+            margin: 16px 0 0 0;
         }
     }
 
