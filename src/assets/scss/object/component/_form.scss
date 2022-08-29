@@ -118,3 +118,23 @@
     cursor: pointer;
 }
 
+.c-form__agreeWrap {
+
+    .wpcf7-list-item {
+        margin: 0;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+}
+
+.c-form__agreeModalTorigger {
+    @include mixin.hover-transparent();
+    color: var.$color-primary;
+    text-decoration: underline;
+    cursor: pointer;
+}
+

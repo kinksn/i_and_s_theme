@@ -27,10 +27,12 @@ const modal = () => {
 
     const modalClose = function(e) {
         const target = e.currentTarget.closest('.js-c-modal');
+        console.log(target);
         body.style.position = 'static';
         body.style.top = 0;
-        target.classList.toggle('is-open');
+        target.classList.remove('is-open');
         window.scrollTo( 0, scrollPosition );
+        
     }
 
     Array.from( document.querySelectorAll('.js-c-modal__close') )

@@ -246,10 +246,11 @@
         position: relative;
         margin: 0 auto;
         max-width: 676px;
-        height: 380px;
+        height: 451px;
         @include mixin.media-sp() {
+            max-width: 100%;
             margin: 0 20px;
-            height: 56vw;
+            height: 64vw;
         }
     }
 
@@ -323,9 +324,9 @@
         right: -24px;
         @include mixin.media-sp() {
             width: 96%;
-            height: 56vw;
+            height: 64vw;
             bottom: -12px;
-            right: -8px;
+            right: -6px;
         }
     }
 
