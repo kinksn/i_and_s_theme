@@ -96,25 +96,26 @@ article( class="l-main works", id="works" )
             :php else:
             :php endif;
             :php wp_reset_postdata();
-        +button( '/archives/item_type/picture', 'もっとみる' )( class="works__moreButton" )
+        +button( "<?php echo get_term_link( 'picture', 'item_type' );?>", 'もっとみる' )( class="works__moreButton" )
 
+    :php
+        $args = array(
+                'post_type' => 'works',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'item_type',
+                        'field' => 'slug',
+                        'terms' => 'other',
+                        'operator'  => 'IN'
+                    )
+                ),
+                'showposts' => 3,
+                'paged' => get_query_var('paged')
+        );
+        $the_query = new WP_Query($args); if($the_query->have_posts()):
+    :php if ($the_query):
     +section( '', 'その他')
         div( class="works__cardContainer" )
-            :php
-                $args = array(
-                        'post_type' => 'works',
-                        'tax_query' => array(
-                            array(
-                                'taxonomy' => 'item_type',
-                                'field' => 'slug',
-                                'terms' => 'other',
-                                'operator'  => 'IN'
-                            )
-                        ),
-                        'showposts' => 3,
-                        'paged' => get_query_var('paged')
-                );
-                $the_query = new WP_Query($args); if($the_query->have_posts()):
 
             :php
                 while ($the_query->have_posts()): $the_query->the_post();
@@ -173,7 +174,9 @@ article( class="l-main works", id="works" )
             :php endif;
             :php wp_reset_postdata();
 
-        +button( '/archives/item_type/other', 'もっとみる' )( class="works__moreButton" )
+        +button( "<?php echo get_term_link( 'other', 'item_type' );?>", 'もっとみる' )( class="works__moreButton" )
+
+    :php endif;
 
 
 

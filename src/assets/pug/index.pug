@@ -158,7 +158,7 @@ article( class="l-main", id="top" )
         :php else:
         :php endif;
         :php wp_reset_postdata();
-    +button( '/archives/item_type/works', 'もっと事例を見る' )( class="c-card__moreButton" )
+    +button( "<?php echo get_term_link( 'works', 'item_type' );?>", 'もっと事例を見る' )( class="c-card__moreButton" )
 
 
   //- plan
