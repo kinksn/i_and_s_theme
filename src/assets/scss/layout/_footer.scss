@@ -46,7 +46,6 @@
 /*--------------------------------------------------------------------------
   copyright
 ---------------------------------------------------------------------------*/
-
 .l-copyright {
     padding: 0 40px 40px 40px;
     @include mixin.media-sp() {
@@ -66,4 +65,41 @@
     @include mixin.media-sp() {
         height: 64px;
     }
+}
+
+
+
+
+/*--------------------------------------------------------------------------
+  privacy policy
+---------------------------------------------------------------------------*/
+.privacy {
+    margin-top: 24px;
+    display: grid;
+    gap: 36px;
+    word-break: break-word;
+}
+
+.privacy__section {
+
+}
+
+.privacy__h2 {
+    @include mixin.font-style($w: bold);
+    margin-bottom: 8px;
+}
+
+.privacy__description {
+    @include mixin.font-style($s: fs-14);
+    padding-left: 8px;
+}
+
+.privacy__list {
+    @include mixin.font-style($s: fs-14);
+    list-style-type: disc;
+    padding-left: 24px;
+}
+
+.privacy__item {
+
 }
