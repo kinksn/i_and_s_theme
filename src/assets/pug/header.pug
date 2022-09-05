@@ -82,7 +82,7 @@ doctype
           div( class="l-header__spMenuBorder l-header__spMenuBorder--bottom" )
       ul( class="l-header__nav", id="js-headerNav" )
         li( class="l-header__item" )
-          a( class!="l-header__link <?php ( is_page('撮影事例') || is_tax() ) ? print 'is-current' : '' ?>", href="/works-list/" )
+          a( class!="l-header__link <?php ( is_page('撮影事例') || is_tax() ) ? print 'is-current' : '' ?>", href!="<?php echo get_permalink( 36 );?>" )
             | 撮影事例
         li( class="l-header__item" )
           a( class!="l-header__link <?php is_page('私たちについて') ? print 'is-current' : '' ?>", href="/about-us/" )

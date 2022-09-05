@@ -26,7 +26,7 @@ article( class="l-main", id="top" )
             div( class="mv__movie" )
               video( poster!= assetsPath + 'img/index/poster.jpeg', loop, muted, autoplay, playsinline )
                 source( src!= assetsPath + 'img/index/mv.mp4', type="video/mp4" )
-            a( href="#", class="mv__movieLink", target="_blank" )
+            a( href="https://youtu.be/F8oP-PgL4Zw", class="mv__movieLink", target="_blank" )
               span( class="mv__movieLinkText" )
                 | フルバージョンの動画を見る
                 img( src!= assetsPath + 'img/common/icons/external.svg', class="mv__movieLinkImage", alt="" )
@@ -158,7 +158,7 @@ article( class="l-main", id="top" )
         :php else:
         :php endif;
         :php wp_reset_postdata();
-    +button( "<?php echo get_term_link( 'works', 'item_type' );?>", 'もっと事例を見る' )( class="c-card__moreButton" )
+    +button( "<?php echo get_permalink( 36 );?>", 'もっと事例を見る' )( class="c-card__moreButton" )
 
 
   //- plan
