@@ -13,15 +13,11 @@ doctype
     //-
       Google Tag Manager
     .
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CPX04W83CJ"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-CPX04W83CJ');
-      </script>
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PCV7F7R');</script>
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     title.
@@ -39,6 +35,7 @@ doctype
           <?php wp_title(''); ?> | <?php echo get_bloginfo('name'); ?> - <?php bloginfo('description'); ?>
         <?php endif; ?>
     meta(name="description", content!="<?php echo get_description(); ?>")
+    meta(name="keywords", content="クラウドファンディング,商品,写真撮影,動画制作,makuake")
     meta( property="og:type", content="website")
     meta( property="og:locale" content="ja_JP" )
     meta( property="og:site_name", content!="I&S Production" )
@@ -69,8 +66,10 @@ doctype
       if(has_action('wp_head', '_admin_bar_bump_cb' )) remove_action('wp_head', '_admin_bar_bump_cb');
       wp_head();
     <body>
-  //-
-    Google Tag Manager (noscript)
+  //- Google Tag Manager (noscript)
+  .
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PCV7F7R"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   :php $isTopPage = is_front_page() ? 'l-header--top' : '';
   header( class!="l-header <?php echo $isTopPage ?>", id!="<?php if ($isTopPage) { echo 'js-header--top'; } else { echo 'js-header'; } ?>" )
     nav( class="l-header__inner" )
