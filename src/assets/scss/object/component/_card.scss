@@ -25,6 +25,15 @@
             transform: scale(1.4);
         }
     }
+
+    &.is-empty {
+        cursor: default;
+        &:hover {
+            .c-card__thumb {
+                transform: scale(1);
+            }
+        }
+    }
 }
 
 .c-card__thumbWrap {

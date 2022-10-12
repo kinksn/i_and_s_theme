@@ -79,9 +79,12 @@ article( class="l-main archive", id="archive" )
                 $invisibleTerm = "pick up";
                 $postID = get_the_ID();
                 $image = get_the_post_thumbnail_url( $page->ID );
+                $isNotContentEmpty = !empty($post->post_content);
+                $contentEmptyClass = "is-empty";
+                $jsCardLinkClass = "js-c-card__link";
             
             div( class="c-card archive__card" )
-                div( class="c-card__link js-c-card__link", data-modal-open!= "modal-" + "<?php echo $postID; ?>" )
+                div( class!="c-card__link <?php $isNotContentEmpty ? print $jsCardLinkClass : print $contentEmptyClass; ?>", data-modal-open!= "modal-" + "<?php echo $postID; ?>" )
                     div( class="c-card__thumbWrap" )
                         :php if ( $image ):
                         img( class="c-card__thumb", src!="<?php echo $image; ?>", alt!="<?php echo $title; ?>" )
@@ -111,6 +114,8 @@ article( class="l-main archive", id="archive" )
                 a( class="c-card__voice", href!="<?php echo get_page_link( $voiceID ); ?>" )
                     | お客様の声
                 :php endif;
+
+                :php if ( $isNotContentEmpty ):
                 div( class="c-modal js-c-modal", data-modal!= "modal-" + "<?php echo $postID; ?>" )
                     div( class="c-modal__inner" )
                         div( class="c-modal__bg js-c-modal__bg" )
@@ -121,6 +126,7 @@ article( class="l-main archive", id="archive" )
                                 img( class="c-modal__close js-c-modal__close", src!= assetsPath + "img/common/icons/close.svg" )
                             div( class="c-modal__content" )
                                 :php the_content();
+                :php endif;
             
             :php endwhile;
             :php else:
