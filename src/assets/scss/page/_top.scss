@@ -573,6 +573,20 @@
 ---------------------------------------------------------------------------*/
 #top {
 
+    .plan__wrap {
+        display: flex;
+        gap: 24px;
+        @include mixin.media-sp() {
+            flex-direction: column;
+            margin-top: 36px;
+        }
+
+        &--addOption {
+            max-width: 890px;
+            width: 100%;
+        }
+    }
+
     .plan__container {
         max-width: 420px;
         box-sizing: border-box;

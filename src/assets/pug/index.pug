@@ -58,25 +58,6 @@ article( class="l-main", id="top" )
     +button( '/about-us', 'もっと詳しく知る' )( class="aboutUs__moreButton" )
 
 
-  //- strength
-  +section( 'Strength', 'I&S撮影スタジオが<br class="u-onlySP">できること', 'クラウドファンディングの<br class="u-onlySP">撮影だけではありません' )( class="l-section--bgGradientGtoO strength" )
-    div( class="strength__container" )
-      div( class="stregth__inner" )
-        div( class="strength__textBox" )
-          h3( class="strength__h3" )
-            img( src!= assetsPath + 'img/common/icons/pen.svg', class="strength__h3Icon", alt="" )
-            span( class="strength__h3Text" )
-              | ライティングの相談
-          p( class="strength__description" )
-            | 支援額4000万円を超えるプロジェクトなど、数多くのクラウドファンディングのランディングページを手がけたライターが文章の執筆をいたします。
-        div( class="strength__hr" )
-        div( class="strength__textBox" )
-          h3( class="strength__h3" )
-            img( src!= assetsPath + 'img/common/icons/moviePicture.svg', class="strength__h3Icon", alt="" )
-            span( class="strength__h3Text" )
-              | 幅広いジャンルの写真・動画制作
-          p( class="strength__description" )
-            | クラウドファンディングに限らず、ECサイトや雑誌などで使用する幅広い種類の商品撮影の他、インタビューやドキュメンタリーの撮影も可能です。
 
 
   //- works
@@ -169,22 +150,37 @@ article( class="l-main", id="top" )
 
   //- plan
   +section( 'Plan', '料金プラン' )( class="l-section--bgGradientGtoO plan" )
-    div( class="plan__container" )
-      h3( class="plan__h3" )
-        | 基本プラン
-      div( class="plan__inner" )
-        p( class="plan__price" )
-          | #{ basicPlanPrice }
-        p( class="plan__supplement" )
-          | 写真30枚・素材加工 + ショート動画（50秒程度）
-        p( class="plan__priceDescription" )
-          | カバンや財布と言ったプロダクトのクラウドファンディングの標準的なセットプラン
-        div( class="plan__areaContainer" )
-          p( class="plan__areaLabel" )
-            | 対応可能地域
-          div( class="plan__areaWrap" )
-            p( class="plan__areaDescription" )
-              | 関東（東京・神奈川・埼玉・千葉・茨城・栃木）<br><span class="u-bold">※対面でなく撮影素材の郵送の場合は全国で対応可能</span>
+    div( class="plan__wrap" )
+      div( class="plan__container" )
+        h3( class="plan__h3" )
+          | 写真プラン
+        div( class="plan__inner" )
+          p( class="plan__price" )
+            | #{ pictrePlanPrice }
+          p( class="plan__supplement" )
+            | 写真30枚・素材加工
+          p( class="plan__priceDescription" )
+            | クラウドファンディングに使用し、ECサイトなどに転用できる高いクオリティの写真をご用意されたい方におすすめ。
+          div( class="plan__areaContainer" )
+            div( class="plan__areaWrap" )
+              p( class="plan__areaDescription plan__areaDescription--alignLeft" )
+                | モデル代と、カフェなど屋内の場所を貸し切っての撮影の場合はスタジオ代が実費で発生いたします。
+      div( class="plan__container" )
+        h3( class="plan__h3" )
+          | 基本プラン
+        div( class="plan__inner" )
+          p( class="plan__price" )
+            | #{ basicPlanPrice }
+          p( class="plan__supplement" )
+            | 写真30枚・素材加工 + ショート動画（50秒程度）
+          p( class="plan__priceDescription" )
+            | カバンや財布と言ったプロダクトのクラウドファンディングの標準的なセットプラン
+          div( class="plan__areaContainer" )
+            p( class="plan__areaLabel" )
+              | 対応可能地域
+            div( class="plan__areaWrap" )
+              p( class="plan__areaDescription" )
+                | 関東（東京・神奈川・埼玉・千葉・茨城・栃木）<br><span class="u-bold">※対面でなく撮影素材の郵送の場合は全国で対応可能</span>
     +button( '/plan', '他のプランも見る' )( class="plan__moreButton" )
 
 
@@ -249,6 +245,29 @@ article( class="l-main", id="top" )
               | 最終納品
             p( class="flow__description" )
               | コンテンツは使用制限も無いため、ECサイトへの出品等にもご利用可能です
+
+
+
+
+  //- strength
+  +section( 'Strength', 'I&S撮影スタジオが<br class="u-onlySP">できること', 'クラウドファンディングの<br class="u-onlySP">撮影だけではありません' )( class="l-section--bgGradientGtoO strength" )
+    div( class="strength__container" )
+      div( class="stregth__inner" )
+        div( class="strength__textBox" )
+          h3( class="strength__h3" )
+            img( src!= assetsPath + 'img/common/icons/pen.svg', class="strength__h3Icon", alt="" )
+            span( class="strength__h3Text" )
+              | ライティングの相談
+          p( class="strength__description" )
+            | 支援額4000万円を超えるプロジェクトなど、数多くのクラウドファンディングのランディングページを手がけたライターが文章の執筆をいたします。
+        div( class="strength__hr" )
+        div( class="strength__textBox" )
+          h3( class="strength__h3" )
+            img( src!= assetsPath + 'img/common/icons/moviePicture.svg', class="strength__h3Icon", alt="" )
+            span( class="strength__h3Text" )
+              | 幅広いジャンルの写真・動画制作
+          p( class="strength__description" )
+            | クラウドファンディングに限らず、ECサイトや雑誌などで使用する幅広い種類の商品撮影の他、インタビューやドキュメンタリーの撮影も可能です。
 
 
 

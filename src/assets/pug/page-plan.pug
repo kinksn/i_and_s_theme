@@ -30,20 +30,6 @@ article( class="l-main", id="plan" )
         div( class="plan__wrap" )
             div( class="plan__container" )
                 h3( class="plan__h3" )
-                    | 基本プラン
-                div( class="plan__inner" )
-                    p( class="plan__price" )
-                        | #{ basicPlanPrice }
-                    p( class="plan__supplement" )
-                        | 写真30枚・素材加工 + ショート動画（50秒程度）
-                    p( class="plan__priceDescription" )
-                        | カバンや財布と言ったプロダクトのクラウドファンディングの標準的なセットプラン
-                    div( class="plan__areaContainer" )
-                        div( class="plan__areaWrap" )
-                            p( class="plan__areaDescription plan__areaDescription--alignLeft" )
-                                | 撮影場所代は20000円まで。モデル代は12000円まで負担可能。それ以上は追加料金をご請求。
-            div( class="plan__container" )
-                h3( class="plan__h3" )
                     | 写真プラン
                 div( class="plan__inner" )
                     p( class="plan__price" )
@@ -51,11 +37,56 @@ article( class="l-main", id="plan" )
                     p( class="plan__supplement" )
                         | 写真30枚・素材加工
                     p( class="plan__priceDescription" )
-                        | クラウドファンディングに必要な標準的な枚数を撮影されたい方にオススメ​
+                        | クラウドファンディングに使用し、ECサイトなどに転用できる高いクオリティの写真をご用意されたい方におすすめ。
                     div( class="plan__areaContainer" )
                         div( class="plan__areaWrap" )
                             p( class="plan__areaDescription plan__areaDescription--alignLeft" )
                                 | モデル代と、カフェなど屋内の場所を貸し切っての撮影の場合はスタジオ代が実費で発生いたします。
+            div( class="plan__container" )
+                h3( class="plan__h3" )
+                    | 動画・写真プラン
+                div( class="plan__inner" )
+                    p( class="plan__price" )
+                        | #{ basicPlanPrice }
+                    p( class="plan__supplement" )
+                        | 写真30枚・素材加工 + ショート動画（50秒程度）
+                    p( class="plan__priceDescription" )
+                        | クラウドファンディングに使用する写真だけでなく、写真とイメージが合うプロモーション動画も同時に作成したい方におすすめ。
+                    div( class="plan__areaContainer" )
+                        div( class="plan__areaWrap" )
+                            p( class="plan__areaDescription plan__areaDescription--alignLeft" )
+                                | 撮影場所代は20000円まで。モデル代は12000円まで負担可能。それ以上は追加料金をご請求。
+            div( class="plan__container" )
+                h3( class="plan__h3" )
+                    | ナレーション付きプラン
+                div( class="plan__inner" )
+                    p( class="plan__price" )
+                        | #{ narrationPlanPrice }
+                    p( class="plan__supplement" )
+                        | 写真30枚・素材加工 + ショート動画（50秒程度）<br>※動画はプロのナレーション付き
+                    p( class="plan__priceDescription" )
+                        | クラウドファンディングに使用する写真に加えて、ナレーションでの説明がついた、よりユーザーにリーチしやすい動画を作成するプラン。全く新しい商品や、多機能な商品のプロモーションにおすすめ。
+                    div( class="plan__areaContainer" )
+                        div( class="plan__areaWrap" )
+                            p( class="plan__areaDescription plan__areaDescription--alignLeft" )
+                                | 撮影場所代は20000円まで。モデル代は12000円まで負担可能。それ以上は追加料金をご請求。
+
+        div( class="plan__wrap plan__wrap--addOption" )
+            div( class="plan__container plan__container--addOption plan__container--borderBlueGreen " )
+                span( class="plan__attention" )
+                    | 追加オプション
+                h3( class="plan__h3 plan__h3--bgBlueGreen" )
+                    | ランディングページ執筆
+                div( class="plan__inner" )
+                    p( class="plan__price" )
+                        | #{ lpOptionalPlanPrice }
+                    p( class="plan__priceDescription" )
+                        | クラウドファンディングを行う際にメインの紹介ページとなる、ランディングページの執筆をいたします。<br class="u-onlyPC">制作した動画や写真のポテンシャルを活かした、ユーザーに伝わりやすい文章を作成されたい方におすすめ。<br class="u-onlyPC">※プラットフォーム側とのご連絡や、ページの立ち上げ、リターン情報の入力などは含まれませんのでご注意ください
+
+    +section( '', 'プラン比較')( class="planTable" )
+        picture( class="planTable__picture" )
+            source( srcset!= assetsPath + 'img/common/plan/table-sp.png', media=breakPoinstSP )
+            img( src!= assetsPath + 'img/common/plan/table.png', class="planList__imageTable", alt="プラン比較表の画像" )
 
     +section( 'Flow', 'ご依頼から納品までの流れ', 'サンプルの受け取りから最短で2週間の納品が可能です。')( class="flow" )
         div( class="flow__container" )
