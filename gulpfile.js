@@ -138,7 +138,7 @@ const browserSync =  done => {
 
 // theme zip
 const zipFiles = () => {
-    return src( [ './**/*.php', './dist**/assets/**/*', './style.css', './screenshot.png' ] )
+    return src( [ './**/*.php', './**/*.xml', './dist**/assets/**/*', './style.css', './screenshot.png' ] )
       .pipe( zip( 'i_and_s_theme.zip' ) )
       .pipe( dest( projectDir ) );
 
